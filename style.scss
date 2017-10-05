@@ -1,0 +1,4485 @@
+// Default variables.
+@import "default-variables";
+
+// Bootstrap Framework.
+@import '../bootstrap/assets/stylesheets/bootstrap';
+
+// Base-theme overrides.
+@import 'overrides';
+
+
+
+
+/* --------- Imagine Learning Support Customizations ------- */
+
+
+
+// need to get more body classes enabledf
+/* ------- Colors & Variables -------- */
+//examples
+//    $dullnavy: desaturate($navy, 30%);
+//    $dullblue: desaturate($navy, 70%);
+//    $lightestblue: lighten($dullblue, 50%);
+//    $mediumblue: darken($lightestblue, 3%);
+
+// colors
+
+//(comments following a version show the previous version in case that needs to be known later)
+
+// grays
+$lightgray: #f2f2f2;
+$medgray: #999;
+$gray: #666; // new one
+$darkgray: #333; 
+
+
+$red: #e21923; //#dc1e23;
+$lightred: #fcddce; //#fbe9e9;
+$darkred: #b5141c;
+
+$orange: #f99e2d; //#e4851c; // purple #8e3d84;  // poss orange e29e33
+$lightorange: #ffe8ba; //#fcf2e8; // purp #f4ecf3;  // pos light or  f0e6d7
+$darkorange: #c67c26;
+
+$blue: #0093d6;
+$lightblue: #cceaf7; //#e5f5ff; //tint($blue, 10%);//#e5f5ff;
+$darkblue: #0075aa;
+
+$green: #a8b21e; //#a9b21f;
+$lightgreen: #e8efc1; //#f6f7e9;
+$darkgreen: #878e19;
+
+
+// warning yellow
+$lightyellow: #fffacd; // used in warning callout
+
+// backgrounds
+
+
+
+
+//responsive variables
+$mobile_max: 1023px;
+$large_min: 1024px;
+
+
+// header
+$headerIconSize: 26px;
+$headerIconColor: $medgray;
+$headerIconHover: $darkgray;
+
+// homepage tile heights
+$homepage_tile_height_normal: 270px; //280px; 
+$homepage_tile_height_tall: 460px; //460px; // 
+$homepage_tile_height_short: 90px;
+
+// mobile/tablet homepage tile heights
+$mobile_homepage_tile_height_normal: 275px; //280px;
+$mobile_homepage_tile_height_tall: 480px; //460px; //
+$mobile_homepage_tile_height_short: 70px;
+
+// layout variables
+$sidebarContentWidth: 240px; // brette wanted 255, but it was too much
+
+@mixin sidebarContentWidth() {
+    width: $sidebarContentWidth;
+    @media screen and (min-width: 1024px) and (max-width: 1199px) {
+        width: 210px;
+    }
+
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+        width: 150px;
+    }
+}
+//@media screen and (min-width: 1024px) and (max-width: 1199px) {
+//    $sidebarContentWidth: 210px; // brette wanted 255, but it was too much
+//}
+//@media screen and (min-width: 768px) and (max-width: 1023px) {
+//    $sidebarContentWidth: 150px; // brette wanted 255, but it was too much
+//}
+
+// mixins
+@mixin display-flex() {
+    display: flex;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+}
+@mixin bottom-shadow() {
+	-webkit-box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.25);
+	-moz-box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.25);
+	box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.25);
+}
+@mixin soft-bottom-shadow() {
+	-webkit-box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.2);
+	box-shadow: 0px 2px 5px 0 rgba(0, 0, 0, 0.2);
+}
+
+@mixin large-outside-shadow() {
+	-webkit-box-shadow: 0px 20px 50px 0 rgba(0, 0, 0, 0.1);
+	-moz-box-shadow: 0px 20px 50px 0 rgba(0, 0, 0, 0.1);
+	box-shadow: 0px 20px 50px 0 rgba(0, 0, 0, 0.1);
+}
+@mixin inner-box-shadow() {
+	-webkit-box-shadow: inset 0px 0px 9px 1px rgba(0,0,0,0.18);
+	-moz-box-shadow: inset 0px 0px 9px 1px rgba(0,0,0,0.18);
+	box-shadow: inset 0px 0px 9px 1px rgba(0,0,0,0.18);
+}
+@mixin inner-box-shadow-gray() {
+	-webkit-box-shadow: inset 0px 0px 10px 4px rgba(0, 0, 0, 0.2);
+	-moz-box-shadow: inset 0px 0px 10px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0px 0px 10px 4px rgba(0, 0, 0, 0.2);
+}
+
+@mixin inner-box-shadow-blue() {
+	-webkit-box-shadow: inset 0px 0px 10px 4px rgba(0, 150, 255, 0.25);
+	-moz-box-shadow: inset 0px 0px 10px 4px rgba(0, 150, 255, 0.25);
+    box-shadow: inset 0px 0px 10px 4px rgba(0, 150, 255, 0.25);
+//    background: $lightblue;
+}
+@mixin inner-box-shadow-green() {
+	-webkit-box-shadow: inset 0px 0px 10px 4px rgba(169, 178, 31, 0.25);
+	-moz-box-shadow: inset 0px 0px 10px 4px rgba(169, 178, 31, 0.25);
+    box-shadow: inset 0px 0px 10px 4px rgba(169, 178, 31, 0.25);
+//    background: $lightgreen;
+}
+@mixin inner-box-shadow-orange() {
+	-webkit-box-shadow: inset 0px 0px 10px 4px rgba(226, 158, 51, 0.25);
+	-moz-box-shadow: inset 0px 0px 10px 4px rgba(226, 158, 51, 0.25);
+    box-shadow: inset 0px 0px 10px 4px rgba(226, 158, 51, 0.25);
+//    background: $lightorange;
+}
+@mixin inner-box-shadow-red() {
+	-webkit-box-shadow: inset 0px 0px 10px 4px rgba(220, 30, 35, 0.25);
+	-moz-box-shadow: inset 0px 0px 10px 4px rgba(220, 30, 35, 0.25);
+    box-shadow: inset 0px 0px 10px 4px rgba(220, 30, 35, 0.25);
+//    background: $lightred;
+}
+
+
+@mixin small-button() {
+	font-family: brandon-medium;
+	height: 36px;
+//	width: 115px;
+	font-size: 14px;
+	p {
+		font-size: 14px;
+	}
+	color: $medgray;
+    padding: 6px 15px;
+	border-radius: 20px;
+	border: 1px solid $medgray;
+	background-color: #fff;
+	
+//    color: $darkgray;		
+//    font-size: 17px;
+    @include display-flex();
+    text-align: center; // need this one too for 2-lined one
+    align-items: center;
+    justify-content: center;
+//    margin: 15px;
+    
+}
+@mixin small-button-hover() {
+    color:  #fff;
+//    border: 1px solid $lightgray;
+    background: $medgray; // might change this to $lightgray instead, though it isn't very accessible if we do that
+}
+
+@mixin gray-button-inverted() {
+    @include small-button-hover();   
+    background: $gray;
+}
+@mixin gray-button-inverted-hover() {
+    @include small-button();
+    background: $lightgray;
+    color: $gray;
+}
+
+
+@mixin button-like-input() {
+    @include text-input();
+    font-size: 16px;
+    font-family: brandon-regular;
+    border-radius: 18px;
+    p, p:last-child {
+        font-size: 16px;
+    }
+}
+// onlyused for inputs; small-button.gray-bg is used for buttons
+@mixin button-like-input-gray() {
+    @include sidebarContentWidth();
+    max-width: 100%;
+    // media query
+    @include button-like-input();
+    background: $lightgray;
+}
+
+@mixin text-input() {
+    @include small-button();
+    border-radius: 6px;
+    text-align: left;
+    padding: 10px 15px 5px 15px;
+}
+//
+//@mixin line-button() {
+//    padding: 8px 20px;
+//    border-radius: 15px;
+//    border: 1px solid $blue;
+//}
+@mixin blue-line-button() {
+    @include small-button();
+    color: $blue;
+    border: 1px solid $blue;
+}
+@mixin blue-line-button-hover() {
+    background: $blue;
+    color: #fff;
+}
+@mixin green-line-button() {
+    @include small-button();
+    border: 1px solid $green;
+    color: $green;
+}
+@mixin green-line-button-hover() {
+    background: $green;
+    color: #fff;
+}
+@mixin orange-line-button() {
+    @include small-button();
+    border: 1px solid $orange;
+    color: $orange;
+}
+@mixin orange-line-button-hover() {
+    background: $orange;
+    color: #fff;
+}
+@mixin red-line-button() {
+    @include small-button();
+    border: 1px solid $red;
+    color: $red;
+}
+@mixin red-line-button-hover() {
+    background: $red;
+    color: #fff;
+}
+
+
+@mixin rounded-corners() {
+    border-radius: 30px;
+}
+.rounded-corners {
+    @include rounded-corners();
+}
+@mixin rounded-corners-small() {
+    border-radius: 15px;
+}
+.rounded-corners-small {
+    @include rounded-corners-small();
+}
+@mixin rounded-corners-slight() {
+    border-radius: 5px;
+}
+.rounded-corners-slight {
+    @include rounded-corners-slight();
+}
+@mixin inline-content() {
+	@include display-flex();
+	justify-content: flex-start;
+	flex-wrap: wrap;
+    align-items: center;
+    margin-top: 10px;
+    margin-bottom: 45px;
+  @media screen and (max-width: 767px) {
+    margin-bottom: 20px;
+  }
+}
+.inline-content {
+	@include inline-content();
+	& > * {
+		margin: 10px;
+	}
+}
+@mixin center-content() {
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.center-content {
+	@include center-content();
+}
+
+.inline-content.center-content {
+	justify-content: center;
+}
+
+@mixin anchor-container() {
+  @include inline-content();
+  @include center-content();
+  justify-content: center;
+  margin-top: 15px;
+  margin-bottom: 0px;
+}
+.anchor-container {
+  @include anchor-container();
+}
+@mixin anchor-button() {
+  font-size: 14px;
+  font-family: brandon-regular;
+  padding: 8px 15px;
+  margin: 0px 7.5px 15px;
+  border-radius: 5px;
+}
+.anchor-button {
+  @include anchor-button();
+}
+
+@mixin gray-bg-section() {
+	background: $lightgray;
+	padding: 20px 30px;
+	border-radius: 20px;
+	margin-bottom: 20px;
+}
+@mixin gray-section-labels(){
+	width: 180px;
+	display: inline-block;
+	color: #6e6e6e;
+	font-size: 22px;
+}
+
+@mixin continued-icon() {
+	content: "...";
+    float: right;
+    align-items: center;
+    font-weight: 500;
+    padding: 3px 6px 7px;
+    height: 14px;
+    @include display-flex();
+}
+@mixin continued-icon-safari() {
+    padding: 0px 6px 10px;
+}
+@mixin gray-continued() {
+	@include continued-icon();
+	color: #fff;
+//	border: 1px solid $medgray;
+	border-radius: 10px;
+	background: $gray;
+}
+@mixin blue-continued() {
+	@include continued-icon();
+	color: #fff;
+//	border: 1px solid $blue;
+	border-radius: 10px;
+	background: $blue;
+
+}
+@mixin green-continued() {
+	@include continued-icon();
+	color: #fff;
+//	border: 1px solid $green;
+	border-radius: 10px;
+	background: $green;
+}
+@mixin red-continued() {
+	@include continued-icon();
+	color: #fff;
+//	border: 1px solid $red;
+	border-radius: 10px;
+	background: $red;
+}
+@mixin orange-continued() {
+	@include continued-icon();
+	color: #fff;
+//	border: 1px solid $orange;
+	border-radius: 10px;
+	background: $orange;
+}
+
+
+
+
+
+/* ----------- Style Guide Classes & Things for content ---------- */
+/*-- a few basics -- */
+
+a {
+    color: $medgray;
+    font-family: brandon-medium;
+//    font-size: 20px; // this is usually the same as the paragraph
+}
+a:hover {
+    color: $darkgray;
+    text-decoration: none;
+}
+a, a:link a:hover, a:active, a:focus, a:visited {
+  text-decoration: none;
+
+}
+
+/* -- buttons ---- */
+button, .btn {
+    @include small-button();
+}
+button:hover, .btn:hover {
+    @include small-button();
+}
+
+// to adjust all text within grids
+.field--name-body {
+
+  .row {
+    font-size: 16px;
+    font-family: brandon-regular;
+    color: $darkgray;
+
+    //.grid-header, h6 {
+    //  font-size: 16px;
+    //  font-family: brandon-bold;
+    //  // color coding is happening in color coding section with other h's
+    //}
+
+  }
+}
+
+
+
+
+/* -- mixins first -- */
+
+
+@mixin tintBasic() {
+    position: relative;
+    //float: left;
+  //margin-right: 20px;
+    margin-bottom: 20px;
+//    box-shadow: rgba(0,0,0,.2) 3px 5px 5px;
+    img { 
+        display: block; 
+    }
+}
+
+@mixin tintBefore() {
+
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+//  background: rgba(0,150,255, 0.2);
+  transition: all .3s linear;
+
+}
+
+.blue-tint, .green-tint, .orange-tint, .red-tint, .gray-tint, .lightgray-tint, .tint {
+    @include tintBasic();
+}
+
+.blue-tint:before { 
+    @include tintBefore();
+    background: rgba(0,150,255, 0.1); 
+}
+.green-tint:before { 
+    @include tintBefore();
+    background: rgba(169,178,31, 0.1); 
+}
+.orange-tint:before { 
+    @include tintBefore();
+    background: rgba(229,133,28, 0.1); 
+}
+.red-tint:before { 
+    @include tintBefore();
+    background: rgba(220,30,35, 0.1); 
+}
+.tint:before,
+.gray-tint:before { 
+    @include tintBefore();
+    background: rgba(130,130,130, 0.1); 
+}
+.lightgray-tint:before { 
+    @include tintBefore();
+    background: rgba(200,200,200, 0.1); 
+}
+
+.blue-tint:hover:before, .green-tint:hover:before, .orange-tint:hover:before, .red-tint:hover:before, .gray-tint:hover:before, .lightgray-tint:hover:before, .tint:hover:before { 
+    background: none; 
+    
+}
+
+
+
+/* --- Callouts ---- */
+
+.callout {
+    border-radius: 5px;
+    border: 0px;
+    padding: 30px 30px 30px 80px; // left margin may change as i work on the icons
+    font-size: 20px;
+    color: $medgray;
+    position: relative;
+    overflow: hidden;
+    line-height: 1.3em;
+    p, p:last-child {
+        margin-bottom: 0px;
+    }
+}
+
+.callout:before {
+  content:"\e010"; // placeholder basic
+  font-family: imagineicons;
+  font-size: 20px;
+  margin-left: -45px;
+  position: absolute;
+  display: block;
+  //top: 38%;
+}
+
+.callout-container.primary,
+.callout.primary {
+  background: $lightblue;
+}
+
+.callout-container.primary .icon:before ,
+.callout.primary:before {
+  content: "\e010";
+  //font-family: imagineicons;
+  //height: 0;
+  //display: flex;
+  /* margin-top: auto; */
+  /* margin-bottom: auto; */
+  /* display: flex; */
+  //align-self: center;
+  /* align-self: center; */
+  //vertical-align: middle;
+
+}
+
+.callout-container.secondary,
+.callout.secondary {
+  background: $lightgray;
+}
+.callout-container.secondary .icon:before,
+.callout.secondary:before {
+  content: "\e010";
+}
+.callout-container.success ,
+.callout.success {
+  background: $lightgreen;
+}
+.callout-container.success .icon:before,
+.callout.success:before {
+  content: "\e007";
+}
+
+.callout-container.warning ,
+.callout.warning {
+  background: $lightyellow;
+}
+.callout-container.warning .icon:before,
+.callout.warning:before {
+  content: "\e009"
+}
+.callout-container.alert ,
+.callout.alert {
+  background: $lightred;
+}
+.callout-container.alert .icon:before,
+.callout.alert:before {
+  content: "\e008"
+}
+
+
+.callout-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  border-radius: 5px;
+  font-size: 20px;
+  color: $medgray;
+  padding: 20px;
+  margin: 15px 0px;
+    p, p:last-child {
+        margin-bottom: 0px;
+    }
+}
+.callout-container .icon {
+  font-family: imagineicons;
+  vertical-align: center;
+  width: 50px;
+  font-size: 35px;
+}
+
+/*
+.callout.primary:before {
+//    content: "i";
+	content: url('/themes/il_support/images/foundation/orbit/right-arrow-small.png');
+    float: left;
+    padding-right: 30px;
+    vertical-align: middle;
+    display: block;
+    align-items: center;
+    margin-top: auto;
+    margin-bottom: auto;
+    height: 100%;
+}
+*/
+
+/* ------- */
+// scrollbar for overall page or other places
+.ps > .ps__scrollbar-y-rail > .ps__scrollbar-y {
+  background: $gray;
+}
+
+
+/* -------- content page layouts ------- */
+.two-columns, .two-column {
+	@include display-flex();
+	justify-content: space-between;
+	 & >div {
+		width: 48%;
+	}
+}
+.three-columns, .three-column {
+	@include display-flex();
+	justify-content: space-between;
+	& > div {
+		width: 31%;
+	}
+}
+
+/* -- responsive grids ---- */
+article .row {
+    padding: 15px 0px;
+}
+
+// most likely not needed anymore
+@media screen and (max-width: 768px) {
+    .mobile-stacked row > * {
+//        width: 100%;   
+    }
+}
+
+
+
+.container-fluid.info-grid {
+    background: $lightgray;
+    border-radius: 5px;
+    padding: 30px 30px 0px;
+    margin: 25px 0px;
+
+    h1, h2, h3 {
+        margin-top: 0px;
+    }
+    h1, h2, h3, p {
+        margin-bottom: 22px;
+    }
+}
+article .container-fluid.info-grid .row {
+ padding: 0px;   
+}
+
+
+/* ---- images in content --- */
+figcaption {
+    padding-bottom: 15px;
+	text-align: left;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+figure.large, figure.small {
+    text-align: center;
+    img {
+        padding: 15px 0px;
+        max-width: 90%;
+    }
+}
+figure.large figcaption {
+	width: 765px;
+}
+figure.large img, img.large {
+    width: 765px;
+    text-align: center;
+    padding: 15px 0px;
+	@media screen and (max-width: 767px) {
+		max-width: 85%;
+	}
+}
+figure.large figcaption {
+	
+}
+figure.small figcaption {
+	width: 315px;
+}
+figure.small img, img.small {
+    width: 315px;
+    text-align: center;
+    padding: 15px 0px;
+    max-width: 85%;
+}
+
+
+
+/* ----- fonts / icons ---------- */
+//@import 'fontface';
+//
+//@include fontFace('Icons', 'font/icons');
+
+
+/* --- general ---- */
+
+// fixes mobile header issue when scrolling
+@media screen and (max-width: 767px) {
+  html, body {
+    height: auto;
+    overflow: auto;
+  }
+
+}
+
+/* ---- headings & fonts ---- */
+body {
+	font-size: 20px;
+   	font-family: brandon-regular;
+   	color: $darkgray;
+    overflow-x: hidden; // hides the bottom scrollbar which is unnecessary
+    @media screen and (max-width: 767px) {
+        font-size: 16px;
+    }
+}
+p, p:last-child {
+//    font-family: brandon-regular;
+//    font-size: 20px;
+    margin-bottom: 15px;
+}
+strong, b, .bold {
+    font-family: brandon-bold;
+}
+
+h1, h2, h3 {
+    color: $gray;
+    font-family: brandon-medium;
+}
+h2, h3, h4 {
+    margin-bottom: 10px;
+}
+h5 {
+  font-family: brandon-bold;
+  font-size: 20px;
+  color: $darkgray;
+  text-align: center;
+}
+.grid-header, h6 {
+  font-size: 16px;
+  font-family: brandon-bold;
+  // color coding is happening in color coding section with other h's
+}
+// mobile
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 16px;
+        text-align: center;
+        padding-top: 0px;
+
+    }
+    h2 {
+        font-size: 24px;
+        padding-bottom: 20px;
+    }
+    h3 {
+        font-size: 18px;
+    }
+    h4, h5, h6 {
+        font-size: 14px;
+    }    
+}
+// large
+@media screen and (min-width: 768px) {
+
+    h1 {
+        font-size: 16px;
+        text-align: center;
+        margin-bottom: 45px;
+    }
+    h2 {
+        text-align: center;
+        font-size: 28px;
+        font-weight: 500;
+        margin-bottom: 10px;
+        
+    }
+    h3 {
+        font-size: 20px;
+        font-family: brandon-bold;
+    }
+    h4, h5, h6 {
+        font-size: 20px;
+        font-family: brandon-bold;
+        color: $darkgray;
+    }  
+    
+}
+
+// gemeral heading colors
+h1, h2, h3, h4 {
+    color: $darkgray;
+}
+h1.js-quickedit-page-title {
+    @include display-flex();
+    justify-content: center;
+}
+.product-page h1.js-quickedit-page-title {
+margin-top: -5px;
+}
+
+h2 {
+    text-align: center;
+    padding-bottom: 30px;
+    // product color-coding happens in product section
+}
+
+h3 {
+    // product color-coding happens in product section
+}
+h4 {
+    
+}
+
+
+
+
+
+/* ----------- headers & common classes ---- */
+a.blue:hover,
+a.blue:active,
+.blue, .blue p, blue p:last-child {
+    color: $blue;
+}
+a.green:hover,
+a.green:active,
+.green, .green p, green p:last-child {
+    color: $green;
+}
+a.orange:hover,
+a.orange:active,
+.orange, .orange p, orange p:last-child {
+    color: $orange;
+}
+a.red:hover,
+a.red:active,
+.red, .red p, red p:last-child {
+    color: $red;
+}
+.blue-bg {
+    background: $blue;
+}
+.green-bg {
+    background: $green;
+}
+.orange-bg {
+    background: $orange;
+}
+.red-bg {
+    background: $red;
+}
+.light-blue-bg {
+    background: $lightblue;
+//    border: 1px solid $medblue;
+//    @include inner-box-shadow-blue();
+}
+.light-green-bg {
+    background: $lightgreen;
+//    border: 1px solid $medgreen;
+//    @include inner-box-shadow-green();
+}
+.light-orange-bg {
+    background: $lightorange;
+//    border: 1px solid $medorange;
+//    @include inner-box-shadow-orange();
+}
+.light-red-bg {
+    background: $lightred;
+//    border: 1px solid $medred;
+//    @include inner-box-shadow-red();
+}
+
+.light-blue-shadow {
+    background: $lightblue;
+//    border: 1px solid $medblue;
+    @include inner-box-shadow-blue();
+}
+.light-green-shadow {
+    background: $lightgreen;
+//    border: 1px solid $medgreen;
+    @include inner-box-shadow-green();
+}
+.light-orange-shadow {
+    background: $lightorange;
+//    border: 1px solid $medorange;
+    @include inner-box-shadow-orange();
+}
+.light-red-shadow {
+    background: $lightred;
+//    border: 1px solid $medred;
+    @include inner-box-shadow-red();
+}
+.blue-button, .green-button,
+.red-button, .orange-button,
+.small-button {
+    @include small-button();
+    max-width: 262px; // i had put 230 because it's the same width as left sidebar ones
+    // 210 is 1/4 of page width.
+}
+.field--name-body {
+	.blue-button, .green-button,
+	.red-button, .orange-button,
+	.small-button {
+		margin-top: 20px;
+        margin-bottom: 0px;
+        //margin-bottom: 60px;
+        //@media screen and (max-width: 767px) {
+        //    margin-bottom: 30px;
+        //}
+	}
+  //.blue-button.second-row, .green-button.second-row,
+  //.red-button.second-row, .orange-button.second-row,
+  //.small-button.second-row {
+  //  margin-top: -40px;
+  //  @media screen and (max-width: 767px) {
+  //    margin-top: -10px;
+  //  }
+  //}
+}
+
+
+.small-button:hover {
+    @include small-button-hover();
+}
+// for use in sidebar
+.small-button.gray-bg {
+    @include small-button();
+    padding: 9px 15px 6px;
+    background: $lightgray;
+    @include sidebarContentWidth();
+    font-size: 16px;
+}
+.small-button.gray-bg:before {
+    content: "\e003";
+    font-family: imagineicons;
+    padding-right: 4px;
+    margin-top: -3px;
+}
+.mac.safari .small-button.gray-bg:before,
+.mac.chrome .small-button.gray-bg:before {
+    margin-top: 0px;
+}
+
+.all-blue-button {
+    @include small-button();
+    color: $blue;
+    @include inner-box-shadow-blue();
+}
+.all-green-button {
+    @include small-button();
+    color: $green;
+    @include inner-box-shadow-green();
+}
+.all-orange-button {
+    @include small-button();
+    color: $red;
+    @include inner-box-shadow-red();
+} 
+.all-red-button {
+	@include small-button();
+    color: $red;
+    @include inner-box-shadow-red();
+}
+
+
+.all-blue-button:hover,
+.blue-button:active,
+.blue-button:hover {
+    @include small-button();
+    color: #fff;
+//    @include inner-box-shadow-blue();
+    background: $blue;
+    border-color: $blue;
+    a {
+        color: #fff;
+    }
+}
+.blue-button {
+	border-color: $blue;
+  a {
+    color: $blue;
+  }
+}
+.green-button {
+	border-color: $green;
+  a {
+    color: $green;
+  }
+}
+.red-button {
+	border-color: $red;
+  a {
+    color: $red;
+  }
+}
+.orange-button {
+	border-color: $orange;
+  a {
+    color: $orange;
+  }
+}
+.all-green-button:hover,
+.green-button:active,
+.green-button:hover {
+    @include small-button();
+    color: #fff;
+//    @include inner-box-shadow-green();
+    border-color: $green;
+    background: $green;
+    a {
+        color: #fff;
+    }
+}
+.all-orange-button:hover,
+.orange-button:active,
+.orange-button:hover {
+    @include small-button();
+    color: #fff;
+//    @include inner-box-shadow-orange();
+    background: $orange;
+    border-color: $orange;
+    a {
+        color: #fff;
+    }
+}
+
+.all-red-button:hover,
+.red-button:active,
+.red-button:hover {
+    @include small-button();
+    color: #fff;
+//    @include inner-box-shadow-red();
+    background: $red;
+    border-color: $red;
+    a {
+        color: #fff;
+    }
+}
+
+.small-button {
+//    max-width: 131px;
+}
+.wide-button {
+    max-width: 409px;
+}
+
+.round-corners {
+    border-radius: 15px;
+}
+
+.semibold {
+	font-weight: 500;
+}
+.bold {
+	font-weight: 600;
+}
+
+
+
+
+
+
+
+// rewriting Checkboxes
+.form-checkboxes li {
+    list-style: none;
+}
+// Checkboxes
+input[type="file"], input[type="checkbox"], input[type="radio"], select {
+    margin: 0 0 1px 0;
+}
+// submit buttons with outline
+// might want to add input:focus but idk if that messes up anything else.. i think it would be okay
+.form-submit:focus, button:focus {
+  outline: none;
+}
+
+
+/* Hide the Ordinary Checkbox */
+body:not(.page-admin-content) input[type="checkbox"] {
+    display: none;
+}
+
+@mixin big-checkbox {
+    label {
+        position: relative;
+        margin-left: 23px;
+//        font-size: 20px;
+        cursor: pointer;
+        padding: 6px 10px 0 0;
+    }
+    label:before, label:after {
+        font-family: FontAwesome;
+        
+        color: $gray;
+        /*absolutely positioned*/
+        position: absolute; top: 7px; left: -23px; right: 10px;
+    }
+    label:before {  // before is checkbox
+        content: '\f096'; /*checkbox unchecked */
+        font-size: 19px;
+    }
+    label:after {  // after is checkmark
+        content: '\f00c'; /*checkbox checked*/
+        max-width: 0;
+        overflow: hidden;
+        opacity: 0.5;
+        font-size: 18px;
+        top: 6px; //-1px;
+        left: -22px;
+        color: $blue;
+
+        -webkit-transition: all 0.50s;
+        -moz-transition: all 0.50s;
+        -o-transition: all 0.50s;
+         transition: all 0.50s;
+    }
+}
+
+@mixin basic-checkbox {
+    label {
+        position: relative;
+        margin-left: 23px;
+//        font-size: 20px;
+        cursor: pointer;
+        padding: 6px 10px 0 0;
+    }
+    label:before, label:after {
+        font-family: FontAwesome;
+        
+        color: $medgray;
+        /*absolutely positioned*/
+        position: absolute; top: 5px; left: -23px; right: 10px;
+    }
+    label:before {  // before is checkbox
+        content: '\f096'; /*checkbox unchecked */
+        font-size: 16px;
+    }
+    label:after {  // after is checkmark
+        content: '\f00c'; /*checkbox checked*/
+        max-width: 0;
+        overflow: hidden;
+        opacity: 0.5;
+        font-size: 16px;
+        top: 2px; //-1px;
+        left: -22px;
+        color: $blue;
+
+        -webkit-transition: all 0.50s;
+        -moz-transition: all 0.50s;
+        -o-transition: all 0.50s;
+         transition: all 0.50s;
+    }
+}
+
+@mixin right-checkbox {
+    label {
+        position: relative;
+        margin-left: 0px;
+//        font-size: 20px;
+        cursor: pointer;
+        padding: 6px 10px 0 0;
+		width: 170px;
+    }
+    label:before, label:after {
+        font-family: FontAwesome;
+        
+        color: $medgray;
+        /*absolutely positioned*/
+//        position: absolute; top: 7px; left: -23px; right: 10px;
+    }
+    label:before {  // before is checkbox
+        content: '\f096'; /*checkbox unchecked */
+        font-size: 19px;
+		float: right;
+		position: relative;
+		left: 6px;
+		top: 0px; // maybe not necessary
+    }
+    label:after {  // after is checkmark
+        content: '\f00c'; /*checkbox checked*/
+        max-width: 0;
+        overflow: hidden;
+        opacity: 0.5;
+		font-size: 18px;
+        float: right;
+		position: relative;
+		left: 25px; // was 25
+		top: -2px;
+        color: $blue;
+
+        -webkit-transition: all 0.50s;
+        -moz-transition: all 0.50s;
+        -o-transition: all 0.50s;
+         transition: all 0.50s;
+    }
+}
+.js-form-type-checkbox {   
+    // basic for editing and adding nodes
+   @include basic-checkbox; 
+//   @include right-checkbox; 
+}
+// checkboxes for views better exposed filters
+.form-type-bef-checkbox {
+    @include basic-checkbox; 
+//    @include right-checkbox; 
+    label {
+        font-size: 13px;  // smaller checkbox
+        margin-left: 28px;
+        padding: 5px 0px 0 0;
+    }
+    label:before, label:after {
+//        color: $navy;
+    }
+    label:before {
+        font-size: 20px;
+    }
+    label:after {
+        font-size: 19px;
+        left: -26px;
+        top: 6px; //-1px;
+    }
+    
+}
+// firefox smaller size
+.ff .form-type-bef-checkbox {
+    label {
+//        font-size: 13px; 
+	}
+}
+/* Animating the Checkbox Icon */
+//input[type="checkbox"]:checked ~ label:after {
+label.checkbox-checked:after {
+    max-width: 25px;
+    opacity: 1;
+    margin-right: 35px; // for basic
+//    margin-right: 0px; // for right checkboxes
+}
+
+
+
+/* ----- Region settings that shouldn't first be changed in _settings.scss --- */
+#page-top {
+    padding: 10px 20px;
+}
+
+
+// page area includes the sidebars and main page section, below the header
+#page-area {
+    padding: 20px 15px;
+}
+.page-header {
+    border: none;
+}
+.region-sidebar-first {
+    padding-top: 10px;
+}
+
+
+
+
+
+/* ------------------- HEADER ------------------- */
+/* ----- menu ------- */
+section#block-il-bootstrap-menuicon {
+    float: right; 
+	width: 50px;
+   	height: 50px;
+	font-size: 25px;
+	padding: 15px 4px;
+    grid-column: 7;
+    -ms-grid-column: 7;
+//     margin: 16px 15px 0px 35px;
+//	position: absolute;
+	z-index: 100;
+//	@media(min-width: 1200px) {
+//		top: 35px;  // adjusting down for when header is 120px height
+//		top: -145; //  -100px;  // adjusting down for when header is 120px height
+//	}
+    @media screen and (max-width: 767px) {
+//        margin: 22px 15px 0px 35px;
+        margin: 0px;
+        position: absolute;
+        top: 5px;
+        right: -10px; // places it  20px from the edge
+        padding: 0px;
+    }
+}
+#menu-btn {
+    font-size: 25px;
+	color: $headerIconColor;
+	font-family: imagineicons;
+    
+    p {
+        font-family: imagineicons;
+    }
+}
+#block-il-bootstrap-menuicon:not(.expanded) .x,
+#block-il-bootstrap-menuicon.expanded .bars {
+	display: none;
+}
+
+#menu-btn .bars:before {
+	content: "\E000";
+//	font-family: imagineicons;
+	font-size: $headerIconSize;
+    &:hover {
+        color: $headerIconHover;
+    } 
+    @media screen and (max-width: 767px) {
+        font-size: 20px;
+    }
+}
+div#menu-btn:hover .x:before,
+div#menu-btn:hover .bars:before {
+  color: $darkgray;
+}
+#menu-btn .x:before {
+	content: "\E014";
+//	font-family: imagineicons;
+	font-size: $headerIconSize;
+    &:hover {
+        color: $headerIconHover;
+    } 
+}
+
+/* -------- search block --------- */
+
+
+//section#block-il-support-search {
+// used to be a div around the form??
+#block-il-bootstrap-search {
+//    width: 400px;
+    // need to get this part workign - katria left off here with grid
+//    grid-column: 5 / 7;
+    grid-column: 5 / 6;
+    -ms-grid-column: 5 ;
+    @include display-flex();
+    justify-content: flex-end; // -105 with x icon before
+    @media screen and (max-width: 767px) {
+        display: none;
+        background: #fff;
+        position: fixed;
+        top: 50px;
+        width: 100%;
+        height: 75px;
+    }
+    &.shown {
+        @include display-flex;
+        
+        .input-group {
+            @media screen and (max-width: 768px) {
+                //margin-left: auto;
+                //margin-right: auto;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 100%;
+                //flex: 1;
+            }
+            input[type='search'] {
+                @media screen and (max-width: 768px) {
+                    margin: 0px;
+                    width: 100%;
+                }
+            }
+        }
+        
+    }
+}
+
+#search-block-form {
+//	display: none;
+	width: 45px;
+	position: relative;
+	top: 15px;
+
+//	left: 370px; // positions it to the left so that when it expands and has left: -20, then it goes from right to left eexpansion
+	input[type='search'] {
+    //	width: 0%;	
+                /* border: none; */
+        /* box-shadow: none; */
+        
+        display: block;
+                // do border mixin
+        border: 1px solid $medgray;
+        border-radius: 18px;
+        position: relative;
+        margin: 0px 0px 0px 60px;
+//        left: 280px;   // positioned over the search bar icon
+//        top: 5px;
+        height: 36px;
+        width: 72px;
+        z-index: 0;
+        @media screen and (max-width: 767px) {
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+	}
+    // placeholder
+    input[type='search']::placeholder {
+      visibility: hidden;
+    }
+    &.search-closable input[type='search']::placeholder {
+      visibility: visible;
+      -webkit-transition: all .3s;
+      -moz-transition: all .3s;
+      -o-transition: all .3s;
+      -ms-transition: all .3s;
+      transition: all .3s;
+    }
+
+	button[type='submit'] {
+		display: none;	
+	}
+//	  background: #fff;
+//    color: gray;
+//    font-weight: bold;
+//    margin: 0;
+
+}
+// browser adjustments
+.ie {
+
+    #search-block-form.shown {
+
+        input[type='search']:placeholder-shown {
+//            padding-top: 7px;   
+        }
+    }
+    #search-block-form.shown {
+
+        input[type='search'] {
+            margin: 0px 0px 0px 0px;
+        }
+    }
+    #block-il-bootstrap-searchicon:not(.expanded) .search { 
+        left: 8px;
+        top: -1px;
+      @media screen and (max-width: 767px) {
+        top: 4px;
+      }
+
+    }
+    #block-il-bootstrap-searchicon.expanded .search {
+        left: -310px;
+        top: -2px;
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        left: -290px;
+      }
+    }
+    #search-btn .search:before {
+        padding: 0px 23px 0px;
+        @media screen and (max-width: 767px) {
+          padding: 4px 23px 0px;
+          right: 20px;
+        }
+        font-size: 24px; // needs slightly smaller to fit in ie
+    }
+    #search-btn .go {
+        margin: -43px 0px 0px 5px;
+      @media screen and (max-width: 767px) {
+        margin: 20px 0px 0px 40px; // may need to adjust here here
+      }
+    }
+    #search-btn .go::after {
+        margin-left: -2px;
+    }
+    #block-searchclosebutton {    // left off getting this to close
+        margin: 19px 0px 17px -10px;
+    }
+    section#block-il-bootstrap-menuicon {
+      top: 10px;
+      right: 20px;
+    }
+    #menu-btn {
+        margin-left: 30px;
+      @media screen and (min-width: 768px) and (max-width: 1023px) {
+        margin-left: 0px;
+      }
+    }
+    
+    
+
+    
+    
+}
+
+
+.mac.chrome, .mac.safari {
+
+    #search-block-form.shown {
+        input[type='search']:placeholder-shown {
+            padding-top: 7px;
+          @media screen and (max-width: 767px) {
+            padding-top: 15px;
+          }
+        }
+    }
+    #block-il-bootstrap-searchicon.expanded .search,
+    #block-il-bootstrap-searchicon:not(.expanded) .search {
+     top: -3px;   
+    }
+    #block-searchclosebutton {    // left off getting this to close
+        margin: 15px 0px;
+    }
+    #search-btn .search:before {
+      @media screen and (max-width: 767px) {
+        top: 3px;
+      }
+    }
+}
+// safari only
+.mac.safari:not(.chrome) {
+    #search-block-form.shown {
+
+        input[type='search'] {
+            margin: 0px 0px 0px 0px;
+        }
+    }
+}
+#search-block-form.shown {
+	display: block;
+//	@include small-button();
+	width: 255px;
+
+	-webkit-transition: all .35s;
+	-moz-transition: all .35s;
+	-o-transition: all .35s;
+	-ms-transition: all .35s;
+	transition: all .35s;
+//	 -webkit-transition: width 0.3s;
+//	-moz-transition: width 0.3s;
+//	-ms-transition: width 0.3s;
+//	-o-transition: width 0.3s;
+//	transition: width 0.3s;
+    @media screen and (max-width: 767px) {
+        width: 100%;
+      background: #fff;
+    }
+    & > .form-item {
+        width: 100%;
+    }
+	input[type='search'] {
+		box-sizing: border-box;
+		float: left;
+//		margin: 0px 0px 0px 20px;
+        padding-top: 10px;
+        padding-left: 40px;
+        padding-right: 40px;
+		width: 255px;
+//		left: 34px;
+//        top: -36px;
+		box-shadow: none;
+        @media screen and (max-width: 767px) {
+          padding-left: 20px;
+          padding-right: 50px;
+        }
+
+		font-size: 16px; // it already was, but just in case that changed elsewhere
+		color: $gray;
+		text-align: left;
+    	background: none;
+	}
+    input[type='search']:placeholder-shown {
+        padding-top: 12px;   
+    }
+	input[type='search']:focus {
+        border-color: $darkgray;   
+    }
+}
+
+#search-block-form .description.help-block {
+    display: none;
+}
+
+// search icon
+
+#block-il-bootstrap-searchicon {
+    float: right;
+    width: 30px;
+    margin-top: 15px;
+//    margin-right: 40px;
+    grid-column: 6;
+    -ms-grid-column: 6;
+    z-index: 10;
+    @media screen and (max-width: 767px) {
+        position: absolute;
+        top: 5px;
+        right: 65px;
+        margin-top: 0px;
+        font-size: 20px;
+        height: 75px;
+    }
+}
+#search-btn {
+    font-size: 25px;
+	color: $gray;
+    p {
+        font-family: imagineicons;
+    }
+//	font-family: imagineicons;
+
+}
+//#block-il-bootstrap-searchicon:not(.expanded) .go {
+#block-il-bootstrap-searchicon .go {
+	visibility: hidden;
+}
+#search-btn.search-submittable .go {
+  visibility: visible;
+}
+#block-il-bootstrap-searchicon:not(.expanded) .search {
+	position: relative;
+	left: 0;
+}
+
+// edge seaerch fix
+.edge #block-il-bootstrap-searchicon:not(.expanded) .search {
+  left: 16px;
+}
+
+
+#block-il-bootstrap-searchicon.expanded .search {
+    // only move for large screens
+    @media screen and (min-width: 768px) {
+        display: inline;
+        position: relative;
+        left: -320px;
+        -webkit-transition: all .3s;
+        -moz-transition: all .3s;
+        -o-transition: all .3s;
+        -ms-transition: all .3s;
+        transition: all .3s;
+    }
+    &:before {  // when its expanded, style search button 
+        @media screen and (max-width: 767px) {
+            background: $gray;
+            color: #fff;
+        }
+    }
+
+}
+ #block-il-bootstrap-searchicon.search-closable .search:before {
+//   content: "\E014";
+     
+}
+.close-search.shown:before {  // close X button
+    content: "\e014";
+    grid-column: 4;
+    -ms-grid-column: 4;
+    font-family: imagineicons;
+    color: $headerIconColor;
+    font-size: $headerIconSize;
+//    margin-left: -90px;
+//    margin-right: 35px;
+    &:hover {
+        color: $headerIconHover;
+    } 
+}
+// new X for search-close button
+#block-searchclosebutton {    // left off getting this to close
+    grid-column: 4;
+    -ms-grid-column: 4;
+    grid-row: 1;
+    -ms-grid-row: 1;
+    margin: 17px 0px;
+    display: none;
+    z-index: 15;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  -o-transition: all .3s;
+  -ms-transition: all .3s;
+  transition: all .3s;
+}
+#block-searchclosebutton.shown {
+    display: block;
+    @media screen and (max-width: 767px) {
+      display: none;
+    }
+}
+#block-searchclosebutton:before {
+    content: "\e014";
+    grid-column: 4;
+    -ms-grid-column: 4;
+    font-family: imagineicons;
+    font-size: $headerIconSize;
+    color: $headerIconColor;
+//    &:hover {
+//        color: $headerIconHover;
+//    } 
+}
+#block-searchclosebutton:hover:before {
+    color: $headerIconHover;
+}
+
+#search-btn .search:before {
+	content: "\E001";
+    font-family: imagineicons;
+    font-size: $headerIconSize;
+    color: $headerIconColor;
+    position: relative;
+    margin-left: 10px;
+    top: 1px;
+    padding: 0px 15px;
+    border-radius: 18px;
+    background: #fff;
+    @media screen and (max-width: 767px) {
+        font-size: 20px;
+        top: 1px;
+        padding: 4px 15px 1px;
+        border: 1px solid $gray;
+
+        margin-left: -10px;
+    }
+
+}
+#search-btn .search:hover:before {
+        color: $headerIconHover;
+    } 
+section#block-il-bootstrap-searchicon.expanded #search-btn .search:before {
+    background: none;
+    margin-left: 110px;
+    top: 2px;
+    @media screen and (max-width: 767px) {
+      margin-left: -10px;
+      background: $gray;
+      color: #fff;
+    }
+}
+#block-il-bootstrap-searchicon:not(.expanded) .go:before,
+#block-il-bootstrap-searchicon:not(.expanded) .go:after {
+	margin-left: 30px;
+	opacity: 0;
+    @media screen and (max-width: 767px) {
+        display: none;
+    }
+}
+#search-btn .go {
+    position: relative;
+//    top: -27px;
+//    left: -31px;
+    margin: -40px 0px 0px 5px;
+
+    @media screen and (max-width: 767px) {
+      margin: 23px 0px 0px 30px;
+    }
+    &:hover {
+        color: $headerIconHover;
+    }
+}
+#search-btn .go:before {
+	content: "Go"; // will change to \E014 ocne i get the updated version with GO >
+	font-family: brandon-regular;
+	font-size: 16px;
+	position: relative;
+//    top: 8px;
+//    top: -40px;
+//    left: 10px;
+	margin-left: -5px;
+	opacity: 1;
+    //// transition on go before & after isn't working yet**
+    -webkit-transition: ease-in 1s;
+    -moz-transition: ease-in 1s;
+    -o-transition: ease-in 1s;
+    -ms-transition: ease-in 1s;
+    transition: ease-in 1s;
+    -webkit-transition: ease-out 0s;
+    -moz-transition: ease-out 0s;
+    -o-transition: ease-out 0s;
+    -ms-transition: ease-out 0s;
+    transition: ease-out 0s;
+}
+#search-btn .go:before:hover, #search-btn .go:before:hover {
+    color: $headerIconHover;
+}
+#search-btn .go:after {
+	content: "\E002"; // will change to \E014 ocne i get the updated version with GO >
+	font-family: imagineicons;
+    color: $headerIconColor;
+	font-size: 14px; // was 16, but thought it should be smaller
+	position: relative;
+//    top: -40px;
+//    left: 10px;
+	margin-left: -10px;
+	opacity: 1;
+  //// transition on go before & after isn't working yet**
+  -webkit-transition: ease-in 1s;
+  -moz-transition: ease-in 1s;
+  -o-transition: ease-in 1s;
+  -ms-transition: ease-in 1s;
+  transition: ease-in 1s;
+  -webkit-transition: ease-out 0s;
+  -moz-transition: ease-out 0s;
+  -o-transition: ease-out 0s;
+  -ms-transition: ease-out 0s;
+  transition: ease-out 0s;
+}
+ #search-btn .go:after:hover {
+    color: $headerIconHover;
+    
+}
+
+/* ----- on the search page ----- */
+
+.section-search {
+    .main-container>.row section.col-sm-12 {
+        margin-top: 0px;
+    }
+    .region-content{
+        @include display-flex();
+        flex-wrap: wrap;
+        justify-content: center;
+        padding-top: 40px;
+    }
+    h1.page-header {
+        width: 100%;
+        color: $gray;
+      @media screen and (max-width: 767px) {
+        font-size: 14px;
+        text-align: center;
+        padding-top: 0px;
+      }
+    }
+    h2 {
+        order: 1;
+        color: $gray;
+        padding-bottom: 0px;
+        margin-bottom: -5px;
+    }
+    form {
+        order: 2;
+    }
+    
+}
+
+
+
+form.search-page-form {
+    .input-group:before {
+        content: "\e001";
+        font-family: imagineicons;
+        font-size: 26px;
+        color: $gray;
+        position: relative;
+        top: 42px;
+        left: 10px;
+        z-index: 100;
+
+    } 
+
+    #edit-keys {
+        height: 44px;
+        padding-left: 44px;
+        padding-right: 50px;
+        border: 1px solid $gray;
+        border-radius: 5px;
+    }
+    #edit-keys:focus {
+        border-color: $darkgray;   
+        box-shadow: none;
+    }
+    #edit-submit {
+        @include small-button();
+        background: #fff;
+        min-width: 120px;
+        margin-left: 0px;
+    }
+    .input-group-btn {
+        left: -55px;
+        top: 18px;
+        button, button:active {
+            border: none;
+            background: none;
+        }
+    }
+    
+    .glyphicon-search:before {
+        content: "Go";
+        font-family: brandon-regular;
+    }
+    .glyphicon-search:after {
+        content: "\e002"; // > icon
+        font-family: imagineicons;
+        padding-left: 3px;
+    }
+}
+
+
+
+/* ---- original search work ------- */
+
+//body {
+////    background: fff;
+//}
+//
+//.container{
+//    width:600px;
+//    margin:50px auto;
+//}
+
+//#search-block-form {
+//    position:relative;
+//    min-width:50px;
+//    width:0%;
+//    height:50px;
+//    float:right;
+//    overflow:hidden;
+//    
+//    -webkit-transition: width 0.3s;
+//    -moz-transition: width 0.3s;
+//    -ms-transition: width 0.3s;
+//    -o-transition: width 0.3s;
+//    transition: width 0.3s;
+//}
+//  
+//#search-block-form input {
+//    top:0;
+//    right:0;
+//    border:0;
+//    outline:0;
+//    background:#dcddd8;
+//    width:100%;
+//    height:50px;
+//    margin:0;
+//    padding:0px 55px 0px 20px;
+//    font-size:20px;
+//    color:red;
+//}
+//#search-block-form input::-webkit-input-placeholder {
+//    color: #d74b4b;
+//}
+//#search-block-form input:-moz-placeholder {
+//    color: #d74b4b;
+//}
+//#search-block-form input::-moz-placeholder {
+//    color: #d74b4b;
+//}
+//#search-block-form input:-ms-input-placeholder {
+//    color: #d74b4b;
+//}
+//
+////.searchbox-icon,
+////.searchbox-submit{
+//#search-block-form input.form-submit {
+//    width:50px;
+//    height:50px;
+//    display:block;
+//    position:absolute;
+//    top:0;
+//    font-family:verdana;
+//    font-size:22px;
+//    right:0;
+//    padding:0;
+//    margin:0;
+//    border:0;
+//    outline:0;
+//    line-height:50px;
+//    text-align:center;
+//    cursor:pointer;
+//    color:#dcddd8;
+//    background:#172b3c;
+//}
+//.searchbox-open{
+//    width:100%;
+//}
+//
+
+
+
+
+/* -- header ------------------ */
+$headerHeight: 68px;
+$mobileHeaderHeight: 50px;
+
+
+.navbar.container {
+    max-width: 100%;
+    width: 100%;
+    margin-top: -15px;
+    border-radius: 0px;
+    position: fixed;  // sticky header
+    /* text-align: center; */
+  @media screen and (max-width: 767px) {
+    // fixes mobile header issue when scrolling
+    top: 50px;
+  }
+}
+// ie only slides up:
+.ie .navbar.container {
+  @media screen and (min-width: 768px) {
+    top: 69px;
+  }
+
+}
+
+header.navbar-default {
+    background-color: #fff;
+    border: none;
+    height: $headerHeight;
+    margin-top: -$headerHeight!important;
+    width: 100%;
+    padding: 0px;
+    z-index: 100;
+    @include soft-bottom-shadow();
+    @media screen and (max-width: 767px) {
+        height: $mobileHeaderHeight;
+        margin-top: -$mobileHeaderHeight!important;
+    }
+    
+    .navbar-header {
+        width: 100%;
+        @media screen and (max-width: 767px) {
+            margin: 0px;
+        }
+    }
+    .region-navigation {
+//        @include display-flex();
+        justify-content: space-between;
+        width: 100%;
+
+        // below 768px we wont do grid
+        
+        
+        // css grid for 768px up
+        @media screen and (min-width: 768px) {
+            display: grid;
+            display: -ms-grid;
+//            grid-template-columns: minmax(15px,1fr) 210px 540px 18px 190px 72px 35px minmax(15px,1fr); // 190 + 50 + 15 gap = 255px search bar size
+//            -ms-grid-columns: minmax(15px,1fr) 210px 540px 18px 190px 72px 35px minmax(15px,1fr); // 190 + 50 + 15 gap = 255px search bar size
+            grid-template-rows: 68px 24px;
+            -ms-grid-rows: 68px 24px;
+            grid-column-gap: 15px;
+            // ie ?
+            grid-row-gap: 0px;
+            // ie?
+        }
+        @media screen and (min-width: 768px) and (max-width: 1023px) {
+             grid-template-columns: 15px 210px 1fr 18px 190px 72px 35px 15px;
+             -ms-grid-columns: 15px 210px 1fr 18px 170px 92px 35px 15px
+        }
+
+        @media screen and (min-width: 1024px) and (max-width: 1199px) {
+             grid-template-columns: minmax(15px,1fr) 210px 364px 18px 190px 72px 35px minmax(15px,1fr);
+             -ms-grid-columns: minmax(15px,1fr) 210px 364px 18px 190px 72px 35px minmax(15px,1fr);
+        }
+        @media screen and (min-width: 1200px) {
+             grid-template-columns: minmax(15px,1fr) 210px 540px 18px 190px 72px 35px minmax(15px,1fr); // 190 + 50 + 15 gap = 255px search bar size
+            -ms-grid-columns: minmax(15px,1fr) 210px 540px 18px 190px 72px 35px minmax(15px,1fr); // 190 + 50 + 15 gap = 255px search bar size
+        }
+
+        // for mobile later - figure out breakpoint
+//        @media screen and (max-width: 768px???) {
+//             grid-template-columns: 15px 210px 1fr 18px 190px 72px 35px 15px;
+//        }
+    }
+
+
+}
+
+// header adjustments for logged in users
+.user-logged-in {
+    
+     .navbar.container {
+        margin-top: 80px;
+        top: 145px;
+    }
+    .main-container.container {
+        margin-top: 53px;
+    }
+}
+
+
+/* ---------- menu ---------------- */
+
+
+#block-il-bootstrap-main-menu { 
+	transition: all 0.3s ease; 
+//	opacity: 0; 
+	display: none;
+	transform: translateY(-30px); 
+}
+
+#block-il-bootstrap-main-menu.shown:before {
+    content: "Product Support Information";
+    height: 75px;
+    font-size: 16px;
+    font-family: brandon-regular;
+    @include display-flex();
+    justify-content: center;
+    align-items: center;
+//    left: -445px;
+    @media screen and (max-width: 787px) {
+        height: 65px;
+        margin-bottom: -25px;
+    }
+}
+#block-il-bootstrap-main-menu.shown {
+//	opacity: 1; 
+//	@include display-flex();
+//    justify-content: center;
+//    flex-wrap: wrap;
+    display: grid;
+    display: -ms-grid;
+    position: absolute;
+    z-index: 100;
+	transform: translateY(0); 
+//    margin-top: 103px;
+//    margin-top: -80px;
+    margin-top: 66px;
+	background: #fff;
+//    border: 1px solid $medgray;
+	// shadow under menu bar
+	@include bottom-shadow();
+    border-radius: 0px; // you shouldn't see the corners anyway.
+    width: 100%;
+    @media screen and (max-width: 787px) {
+        margin: 0px;
+        position: fixed;
+        top: $mobileHeaderHeight;
+    }
+	ul.menu {
+		@include display-flex();
+		justify-content: flex-start; // need items to be left aligned
+		flex-wrap: wrap;
+		max-width: 1200px;
+		margin-left: auto;
+		margin-right: auto; // while inside is left aligned, whole container needs to be centered.
+		padding: 15px 27px 30px; // should be 45 on bottom to be a full 60px but it looks bigger than her visual design that way
+        @media (min-width: 768px) and (max-width: 1199px) {
+            max-width: 600px;
+            justify-content: center;
+        }
+        @media(max-width: 767px) {
+            flex-direction: column;
+        }
+		li {
+			@media(min-width: 1200px) {
+				width: 23%;
+				margin-right: 20px;
+				margin-bottom: 20px;
+			}
+            @media (min-width: 768px) and (max-width: 1199px) {
+                width: 48% ;
+				margin-right: 20px;
+    			margin-bottom: 20px;
+			}
+            @media(max-width: 767px) {
+//                width: 256px;
+                width: 100%;
+                max-width: 350px;
+                margin-bottom: 15px;
+			}
+		}
+		a {
+			@include small-button();
+			@media screen and (min-width: 1200px){
+				padding: 0px 30px;
+			}
+		}
+		a.blue {
+			color: $blue;
+			border-color: $blue;
+		}
+		a:hover {
+			@include small-button-hover();
+		}
+		a.blue:hover, a.blue:active {
+			color:  #fff;
+//			border: 1px solid $blue;
+			background: $blue;
+		}
+		a.red {
+			color: $red;
+			border-color: $red;
+		}
+		a.red:hover, a.red:active {
+			color: #fff;
+//			border: 1px solid $red;
+			background: $red;
+
+		}
+		a.green {
+			color: $green;
+			border-color: $green;
+		}
+		a.green:hover, a.green:active {
+			color:  #fff;
+//			border: 1px solid $green;
+			background: $green;
+		}
+		a.orange {
+			color: $orange;
+			border-color: $orange;
+		}
+		a.orange:hover, a.orange:active {
+			color:  #fff;
+//			border: 1px solid $orange;
+			background: $orange;
+		}
+	}
+}
+//#menu-btn { position: relative; z-index:1 }
+
+// browser adjustments
+.ie {
+    // menu showing
+    .shown#block-il-bootstrap-main-menu::before {
+        margin-top: 60px;
+    }
+    .shown#block-il-bootstrap-main-menu {
+        top: 75px;
+    }
+}
+
+
+
+
+.off-canvas-content, .off-canvas-content {
+    background: #fff;
+}
+
+/* ------ logo ------- */
+
+// come back and redo the image for logo - here here
+.navbar .logo {
+	height: 90px;
+    width: 210px;
+    /* top: -30px; */
+    display: block;
+    grid-column: 2;
+    -ms-grid-column: 2;
+    grid-row: 1 / 3;
+    -ms-grid-row: 1 / 3;
+    -ms-grid-row-span: 2; // ie
+    float: none!important;
+    padding: 0;
+//    margin-left: 30px;
+    margin-top: -1px;
+//    margin-right: auto!important;
+
+
+	img {
+    	max-width: 210px;
+//		@media (min-width: 1200px) {
+//			margin-top: 30px;
+//		}	
+        
+        @media screen and (min-width: 1024px) and (max-width: 768px) {
+            max-width: 196px;
+        
+        }
+        //@media screen and (min-width: 768px) and (max-width: 1023px) {
+        //    max-width: 152px;
+        //
+        //}
+        @media screen and (max-width: 767px){
+            max-width: 156px;
+            margin-top: 0px;
+            margin-left: 20px; // will have 20px spacing
+        
+        }
+	}
+
+}
+	
+a.name.navbar-brand { // site name we aren't using
+    display: none;
+}
+
+
+.byline {
+  position:absolute;
+  top:150px;
+  left:30%;
+  text-align:center;
+  font-size:18px;
+}
+.byline a {
+  text-decoration:none;
+  color: #d74b4b;
+}
+#block-il-support-search h2.block-title {
+    display: none;
+}
+
+/* ------ general page container main ------- */
+
+.main-container.container {
+    margin-top: $headerHeight; // check this for all sizes
+    padding: 0px;
+    @media screen and (min-width: 1200px) {
+        padding: 0px; // revise this for sizes..
+//        margin-bottom: -25px; // weird fix for displaying columns with flex for auto-match height for backgrounds
+    }
+    @media screen and (max-width: 767px) {
+        margin-top: $mobileHeaderHeight;
+    }
+    &.no-sidebars {
+        margin-bottom: 0px;
+    }
+    
+}
+body:not(.path-frontpage) .main-container > .row {  // change this to IF there is a sidebar, do this, need to add that class to the body
+    background: $lightgray;
+    display: flex;
+    flex-wrap: nowrap;
+    width: 99.9%; // for some reason it is weird if it is 100%
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    /* margin-top: -25px; */
+    position: relative;
+//    top: -25px;
+    @media screen and (max-width: 767px) {
+        top: 0px; 
+        flex-wrap: wrap;
+    }
+}
+.main-container {
+    @media screen and (max-width: 768px) {
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}
+.main-container > .row {
+  @include display-flex();
+  @media screen and (min-width: 768px) {
+    flex-wrap: nowrap;
+  }
+
+  @media screen and (max-width: 767px) {
+
+    top: 0px;
+    margin-right: 0px;
+    margin-left: 0px;
+
+  }
+
+  & > aside.col-sm-3 {
+    width: 25%;
+    padding: 30px;
+    // large screens only:
+    @media screen and (min-width: 768px) {
+      min-height: 800px;
+    }
+
+    @media screen and (max-width: 1199px) {
+      width: 25%;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1023px) {
+      padding: 30px 20px;
+      .region-sidebar-first nav ul.level-1 {
+        width: 150px; // katria bandaid, want to work on more
+        //max-width: calc(100% - 20px); // needed now with fixed positioning changes
+      }
+    }
+    // for some reason the % widths mess
+    .region-sidebar-first nav ul.level-1 {
+      @media screen and (min-width: 830px) and (max-width: 880px) {
+        width: 164px;
+      }
+      @media screen and (min-width: 881px) and (max-width: 920px) {
+        width: 177px;
+      }
+      @media screen and (min-width: 921px) and (max-width: 960px) {
+        width: 181px;
+      }
+      @media screen and (min-width: 961px) and (max-width: 1023px) {
+        width: 197px;
+      }
+    }
+    @media screen and (min-width: 1024px) {
+      .region-sidebar-first nav ul.level-1 {
+        //max-width: calc(100% - 50px); // needed now with fixed positioning changes
+        // i dont know exactly why it's 50, not 30 but partly because this container is already indented from the left
+      }
+    }
+    @media screen and (max-width: 767px) {
+      padding: 30px 20px 10px;
+      //            padding-top: 60x;
+      width: 100%;
+      //            min-height: unset; // i guess this doesn't work
+
+      .region-sidebar-first nav ul.level-1 {
+        display: flex;
+        flex-wrap: wrap;
+        //width: 240px;
+        width: 100%;
+
+        // not centering sidebar shown at 100% width
+        //                margin-left: auto;
+        //                margin-right: auto;
+      }
+    }
+
+    // large screen content fit within
+    fieldset {
+      width: 100%;
+    }
+
+    /*
+*  STYLED scrollbar
+*/
+
+  }
+  // ======== Sidebar Scroll Styling ====
+  @import '../node_modules/perfect-scrollbar/src/css/mixins.scss';
+  @import '../node_modules/perfect-scrollbar/src/css/variables.scss';
+  @import '../node_modules/perfect-scrollbar/src/css/themes.scss';
+  $ps-bar-hover-bg: #f09f09 !important; //$gray; // 666
+  $ps-bar-container-hover-bg: #666 !important;
+
+  .ps-theme-imagine-learning {
+    @include ps-container(map-merge($ps-theme-default, (
+            border-radius: 0,
+            scrollbar-x-rail-height: 20px,
+            scrollbar-x-height: 20px,
+            scrollbar-y-rail-width: 20px,
+            scrollbar-y-width: 20px
+    )));
+  }
+
+  .ps > .ps__scrollbar-y-rail > .ps__scrollbar-y {
+    background: $gray;
+  }
+  // tablets only
+  @media screen and (min-width: 768px) and (max-width: 1024px) {
+    .ps > .ps__scrollbar-y-rail {
+      opacity: 1 !important;
+      display: block !important;
+    }
+  }
+
+  //& > aside.col-sm-3 {
+  //  ::-webkit-scrollbar-track {
+  //    /* 	-webkit-box-shadow: inset 0 0 4px rgba(0,0,0,0.3); */
+  //    border-radius: 5px;
+  //    background-color: transparent;
+  //  }
+  //
+  //  ::-webkit-scrollbar {
+  //    width: 6px;
+  //    background-color: transparent;
+  //    margin-right: 12px;
+  //  }
+  //
+  //  ::-webkit-scrollbar-thumb {
+  //    border-radius: 10px;
+  //    //-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,.3);
+  //    background-color: transparent;
+  //  }
+  //}
+  //& > aside.col-sm-3:hover {
+  //  ::-webkit-scrollbar-thumb {
+  //    border-radius: 10px;
+  //    background-color: #666;
+  //    // animate fade in/out
+  //    -moz-transition: all 1.2s ease-in;
+  //    -o-transition: all 1.2s ease-in;
+  //    -webkit-transition: all 1.2s ease-in;
+  //    transition: all 1.2s ease-in;
+  //  }
+  //}
+
+  // --- end sidebar scroll styling ----
+
+    & > section.col-sm-9 {
+        background: #fff;
+//        margin-top: -25px;
+        padding-left: 60px;
+        width: 75%;
+        padding: 30px 30px 90px 60px;
+//        padding-top: 30px;
+//        padding-bottom: 90px;
+        // large screens only:
+        @media screen and (min-width: 768px){
+            min-height: 800px;    
+        }
+        @media screen and (max-width: 1199px) {
+            width: 75%;   
+        }
+        @media screen and (max-width: 767px) {
+            width: 100%;
+//            min-height: unset; // i guess this doesn't work
+            padding-bottom: 45px;
+//            padding-left: 30px; // so it is centered
+            padding: 40px 20px 20px 20px;
+        }
+    }
+    section.col-sm-12 {
+        background: #fff;
+//        margin-top: -25px;
+        padding-bottom: 15px;
+        @media screen and (min-width: 768px){
+            min-height: 800px;    
+        }
+    }
+    // adjust this for other screen sizes!!
+}
+
+/* --- tablet and mobile region adjustments --- */
+
+@media (min-width: 768px) {
+    .container {
+        width: 100%;
+    }
+}
+
+
+
+
+/* --------------- Footer ------------------ */
+
+.footer-wrapper {
+	background: $gray;
+	color: $lightgray;
+	font-size: 18px;
+	
+	.small-button {
+        @include gray-button-inverted();
+		font-size: 16px;
+		margin-top: 0px;
+		margin-right: 0px;
+//        background: $lightgray;
+	}
+    .small-button:hover {
+//        @incldue gray-button-inverted-hover();
+        background: $lightgray;
+        border-color: $lightgray;
+        color: $gray;
+    }
+	
+    a:not(.small-button) {
+        color: #fff;
+    }
+    a:not(.small-button):hover {
+        color: $lightgray;
+    }
+	.bottom-bar {
+		text-align: center;
+		padding-bottom: 60px;
+		background: $gray;
+        @media screen and (max-width: 767px) {
+            padding: 0px 30px 40px;
+        }
+		div {
+			font-size: 14px;
+		}
+	}
+}
+.footer-content {
+	@include display-flex();
+    justify-content: center;
+	@media screen and (max-width: 768px) {
+		flex-wrap: wrap;
+        padding: 40px 29px 20px;
+		.footer-col-2 {
+			display: inline;
+			margin-left: 20px;
+		}
+	}
+	padding: 40px 30px;
+	p {
+		margin-bottom: 4px;
+        @media screen and (max-width: 767px) {
+            font-size: 14px;
+        }
+	}
+}
+
+.footer-col-1 {
+	width: 140px;
+	margin-right: 30px;
+	font-weight: 500;
+    @media screen and (max-width: 768px) {
+        margin-bottom: 20px;
+    }
+    @media screen and (max-width: 767px) {
+        width: 40px;
+//        margin-right: 10px;
+        // return here
+    }
+    @media screen and (max-width: 400px) {
+        width: 40px;
+        margin-right: 10px!important;
+    }
+}
+.footer-col-2 {
+	width: 400px;
+    @media screen and (max-width: 767px) {
+        margin-left: 10px;
+        margin-bottom: 20px;
+        flex: 1;
+        // return here
+        @media screen and (min-width:500px ) {
+            // for rotated phones
+            margin-right: 35px;
+        }
+    }
+    @media screen and (max-width: 400px) {
+        flex: 1;
+        margin-left: 10px;
+    }
+
+}
+//.footer-col-right {
+//	@include display-flex();
+//	flex-wrap: wrap;
+//}
+.footer-col-3,
+.footer-col-4,
+.footer-col-5 {
+	width: 160px;
+	margin-left: 30px;
+    @media screen and (max-width: 767px) {
+        margin-left: 0px;
+    }
+    @media screen and (max-width: 400px) {
+        margin-bottom: 20px;
+    }
+}
+//.footer-extra-link {
+//	width: 100%;
+//	padding-left: 30px;
+//}
+
+
+/* ---------- home page ---------- */
+.path-frontpage h1.js-quickedit-page-title {
+    display: none;
+}
+.path-frontpage .view-homepage-products {
+    @media screen and (min-width: 768px) {
+        min-height: 925px;
+    }    
+    .view-header {
+        font-size: 32px;
+        color: $gray;
+        text-align: center;
+        padding: 38px 0px 44px;
+    }
+    .view-content {
+        @include display-flex();
+        justify-content: space-between;
+        flex-wrap: wrap;
+		margin-left: auto;
+    	margin-right: auto;
+    	max-width: 1140px;
+        //margin-bottom: 45px; // wants to add up to 90px, 15px + 30 + 45
+        @media screen and (max-width: 1024px) {
+          padding: 0px 10px;
+        }
+    }
+    .views-row {
+        width: 48.5%;
+		max-width: 555px;
+        padding: 30px 30px 35px 30px;
+        min-height: $homepage_tile_height_short;
+        height: $homepage_tile_height_normal;  
+        @include rounded-corners-slight();
+        margin-bottom: 30px;
+        
+        @include display-flex();
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        position: relative;
+        top: 0px;
+//        @include inner-box-shadow-gray();
+        margin-bottom: 30px;
+
+        @media screen and (max-width: 767px) {
+            width: 95%;
+        }
+        @media screen and (max-width: 1024px) {
+          height: $mobile_homepage_tile_height_normal;
+        }
+		h2 {
+            padding-bottom: 0px;
+            font-family: brandon-regular;
+            @media screen and (min-width: 1024px) {
+              font-size: 32px;
+            }
+          @media screen and (min-width: 768px) and (max-width: 1023px) {
+            font-size: 24px; // needs smaller than default
+          }
+		}
+        .views-field-name {
+            text-align: center;
+            h2 {
+                color: #fff;
+            }
+
+        }
+        .views-field-field-subtitle,
+        .views-field-field-starting-landing-page,
+        .views-field-field-summary,
+        .views-field-field-logo {
+            display: none;
+        }
+        .views-field-field-subtitle.shown,
+        .views-field-field-starting-landing-page.shown,
+        .views-field-field-summary.shown,
+        .views-field-field-logo.shown {
+            display: block;
+        }
+		.views-field-field-subtitle.shown p {
+            font-family: brandon-medium;
+			font-size: 16px;
+            margin-bottom: 12px;
+		}
+        .views-field-field-summary.shown {
+            font-size: 16px;
+            font-family: brandon-regular;
+            padding: 0px 30px;
+            @media screen and (max-width: 1024px) {
+              padding: 0px;
+            }
+			p {
+				font-size: 16px;
+			}
+        }
+        .views-field-field-logo.shown {
+            padding: 10px 0px 30px;
+            width: 100%;
+            text-align: center;
+        }
+
+		&.blue-bg .views-field-field-starting-landing-page.shown {
+            @include blue-line-button(); 
+            // include blue border white bg button styling
+            &:hover, &:hover a {
+                @include blue-line-button-hover();
+            }
+		}
+        &.green-bg .views-field-field-starting-landing-page.shown {
+            @include green-line-button(); 
+            // include blue border white bg button styling
+            &:hover, &:hover a {
+                @include green-line-button-hover();
+            }
+		}
+        &.orange-bg .views-field-field-starting-landing-page.shown {
+            @include orange-line-button(); 
+            &:hover, &:hover a {
+                @include orange-line-button-hover();
+            }
+		}
+        &.red-bg .views-field-field-starting-landing-page.shown {
+            @include red-line-button(); 
+            // include blue border white bg button styling
+            &:hover, &:hover a {
+                @include red-line-button-hover();
+            }
+		}
+        
+    }
+    .views-row.expanded {
+        height: $homepage_tile_height_tall; 
+        background: #fff;
+		align-items: flex-start;
+        @include large-outside-shadow();
+        @media screen and (max-width: 1024px) {
+          min-height: $mobile_homepage_tile_height_tall;
+        }
+		.views-field-name {
+//			margin-top: -45px; // closer to top of tile
+			height: 0px;
+//            display: none; 
+		}
+    }
+
+    .views-row.partner-expanded {
+        @media screen and (min-width: 768px) {
+            height: $homepage_tile_height_short; 
+        }
+        @media screen and (max-width: 1024px) {
+          padding: 15px 30px 30px 30px;
+          min-height: $mobile_homepage_tile_height_short;
+          height: $mobile_homepage_tile_height_short;
+        }
+		.views-field-name {
+			padding-top: 10px;
+		}
+    }
+    .views-row.moved-up {
+        @media screen and (min-width: 1025px) {
+            top: $homepage_tile_height_normal - $homepage_tile_height_tall ; 
+            // adjust this to diff between normal and small heights??
+        }
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+          top: $mobile_homepage_tile_height_normal - $mobile_homepage_tile_height_tall ;
+          // adjust this to diff between normal and small heights??
+        }
+
+    }
+
+    // mobile adjustements
+    @media screen and (max-width: 767px) {
+        .views-row h2 {
+            font-size: 18px;
+        }
+        
+        img {
+            max-width: 60%;
+            height: auto;
+        }    
+        .view-header {
+            font-size: 16px;
+            padding: 30px 0px 20px;
+        }
+        
+        .views-row, .views-row.expanded, .views-row.partner-expanded {
+            min-height: 60px;
+            height: auto!important;
+            width: 100%;
+            padding: 5px 15px 10px;
+        }
+        .views-row.expanded {
+            padding: 15px 15px 25px;
+    
+        }
+        .views-row.partner-expanded .views-field-name {
+          padding-top: 0px;
+        }
+
+        .views-field-field-subtitle.shown {
+            max-width: 90%;
+            text-align: center;
+        }
+        .views-field-field-subtitle.shown p {
+            font-size: 12px;
+//            max-width: 60%;
+            
+        }
+        .views-field-field-summary.shown {
+            padding: 0px!important;
+            font-size: 12px!important;
+        }
+
+    }
+}
+
+
+/*
+ ------------------- other pages ------------------- */
+
+
+// pagination & pagers
+.pager-nav .pagination a {
+    background: none!important;
+    border: none!important;
+    color: $gray!important;
+    font-size: 16px!important;
+    &:hover {
+        color: $darkgray!important;
+    }
+    .last-text:after,
+    .next-text:after {
+        content: "\e002";
+        color: $gray;
+        padding-left: 3px;
+        font-family: imagineicons;
+    }
+    .last-text:after {
+        content: "\e002 \e002";
+    }
+    .last-text:hover:after,
+    .next-text:hover:after {
+        color: $darkgray;
+    }
+}
+
+
+/* ----- releases page --- */
+
+
+
+// filters
+#edit-field-filters-target-id--wrapper {
+	input {
+//		margin: 0px -6px 0px 0px;
+	}
+	label {
+//		position: relative;
+//		top: -2px;
+//		margin-left: 2px;
+	}
+}
+// color coding filters - needs to be updated when a new filter is added
+
+// this general one can't be overridden, so we have to use importants below to override it, tried making it more specific tho.
+#edit-field-filters-target-id .form-item {
+    label:after { 
+		color: $blue;  
+	}
+	input[type="checkbox"]:checked ~ label {
+		color: $blue;
+	}
+    
+}
+.form-item.form-item-field-filters-target-id-10,
+.form-item.form-item-field-filters-target-id-2,
+.form-item.form-item-field-filters-target-id-1,
+.form-item.form-item-field-filters-target-id-246 {
+	label:after { 
+		color: $blue;  // not neccessary since this is the default for all checkboxes
+	}
+	input[type="checkbox"]:checked ~ label {
+		color: $blue;
+	}
+}
+.form-item.form-item-field-filters-target-id-22 {
+	label:after { 
+		color: $green!important;
+	}
+	input[type="checkbox"]:checked ~ label {
+    	color: $green!important;
+	}
+}
+.form-item.form-item-field-filters-target-id-38 {
+	label:after { 
+		color: $orange!important;
+	}
+ 	input[type="checkbox"]:checked ~ label {
+    	color: $orange!important;
+	}
+}
+.form-item.form-item-field-filters-target-id-34 {
+	label:after { 
+		color: $red!important;
+	}
+	input[type="checkbox"]:checked ~ label {
+    	color: $red!important;
+	}
+}
+// when it is time to add another filter:
+//.form-item-field-filters-target-id-[insert id here] {
+//	label:after { 
+//		color: $colorname;
+//	}
+//	input[type="checkbox"]:checked ~ label {
+//    	color: $colorname;
+//	}
+//}
+
+form#views-exposed-form-releases-page-1 { 
+    // rounded, tall input boxes
+    #edit-search,
+    #edit-body-value,
+    #edit-body-value--2,
+    #edit-field-release-date-value-min,
+    #edit-field-release-date-value-max {
+//        max-width: $sidebarContentWidth;
+//        @include rounded-corners-small();
+//        @include inner-box-shadow-gray();
+//        height: 50px;
+        @include button-like-input-gray();
+    }
+    // for placeholder text in search
+    #edit-body-value,
+    #edit-body-value--2,
+    #edit-search {
+//        padding: 10px 20px;
+        color: $darkgray;
+        margin-bottom: 30px;
+    }
+    // product filters
+    #edit-field-filters-target-id label {
+        font-size: 16px;   
+//        margin-top: -7px;
+		line-height: 1.2em;
+    }
+    
+    // date min & max
+    .form-item-field-release-date-value-max label {
+        display: none;
+    }
+    .form-item-field-release-date-value-max:before {
+        content: "To";
+        font-size: 14px;
+    }
+    // 1st level
+	.form-item-field-release-date-value-min label,
+	#edit-field-filters-target-id--wrapper legend span {
+		font-size: 20px;
+//        font-weight: bold;
+        font-family: brandon-medium;
+		@include sidebarContentWidth();
+        
+//		border-bottom: 1px solid #444;
+		margin: 5px 0px 8px;
+		display: block;
+        color: $gray;
+         &:hover, &.shown {
+            color: $darkgray;
+            font-family: brandon-bold;
+        }
+		
+	}
+	.form-item-field-release-date-value-min label:after,
+	#edit-field-filters-target-id--wrapper legend span:after {
+		font-family: imagineicons;
+        content: "\e015";
+//		content: '\e001'; 
+//		content: "\uniE001"; 
+		float: right;
+        color: $gray;
+		font-size: 20px;
+		margin-top: -4px;
+        &:hover, &.shown {
+            color: $darkgray;
+            
+        }
+	}
+
+    .form-item-field-release-date-value-min label:hover:after,
+    #edit-field-filters-target-id--wrapper legend span:hover:after {
+          color: $darkgray;
+    }
+    #edit-field-filters-target-id--wrapper legend {
+        border-bottom: none;
+    }
+    
+	.form-item-field-release-date-value-min label.shown:after,
+	#edit-field-filters-target-id--wrapper legend span.shown:after {
+//		font-family: imagineicons;
+        content: "\e016";
+        color: $darkgray;
+	}
+
+    #edit-field-release-date-value-min--description,
+    #edit-field-filters-target-id--wrapper .fieldset-wrapper,
+    #edit-field-release-date-value-min,
+    .form-item-field-release-date-value-max {
+        display: none;
+    }
+    #edit-field-release-date-value-min--description.shown,
+    #edit-field-filters-target-id--wrapper .fieldset-wrapper.shown,
+    #edit-field-release-date-value-min.shown,
+    .form-item-field-release-date-value-max.shown {
+        display: block;
+    }
+    #edit-field-filters-target-id--wrapper .fieldset-wrapper.shown {
+        margin-bottom: 15px;
+    }
+
+    // adding border bottom
+    .form-item-field-release-date-value-max.shown {
+//        border-bottom: 1px solid #000;
+        padding-bottom: 10px;
+		@include sidebarContentWidth();
+    }
+//    .form-item-field-release-date-value-min label {
+//        border-bottom: 1px solid #444;
+//        padding: 0px 0px 0px;
+//        margin: 5px 0px;
+//        font-size: 17px;
+//    }
+    #edit-field-filters-target-id--wrapper legend {
+		@include sidebarContentWidth();
+        margin-bottom: -2px;
+    }
+    #edit-field-release-date-value-min--description {
+        position: relative;
+        top: -80px; // was -81
+        margin-bottom: -35px;
+        font-size: 14px;
+        color: $darkgray;
+    }
+    input#edit-field-release-date-value-min {
+        margin: 40px 0px 15px;
+    }
+//    input#edit-field-release-date-value-min,
+//    input#edit-field-release-date-value-max {
+//        max-width: 210px;
+//        padding: 10px 20px;
+//        margin-left: 15px;
+//        color: $darkgray;
+////        height: 30px;
+//    }
+
+    button#edit-submit-releases {
+        display: none;
+    }
+    button#edit-submit-releases.shown {
+        display: block;
+        margin: 20px 0px;
+        @include small-button();
+        background: $lightgray;
+//        height: 50px;
+//        padding: 10px 20px;
+//        position: relative;
+//        left: -12px;
+//        top: 15px;
+    }
+    button#edit-submit-releases.shown:hover {
+        @include small-button-hover();
+    }
+}
+// rss feed and twitter icons
+section#block-il-bootstrap-rssfeedandtwittericons {
+    margin-top: -10px;
+}
+section#block-il-bootstrap-rssfeedandtwittericons.showing-filters {
+    margin-top: -10px;
+}
+section#block-il-bootstrap-rssfeedandtwittericons .rss-link {
+//    position: relative;
+//    top: 30px;
+    color: $darkgray;
+}
+section#block-il-bootstrap-rssfeedandtwittericons .rss-link:after {
+    font-family: imagineicons;
+    content: "\e006";
+    display: inline-block;
+    font-size: 20px;
+    margin-top: 0px;
+    margin-left: 4px;
+    // messy fix to redo later - need to get actual hexcodes from brette so i can just put the icon into the content..
+//    color: $gray;
+//    margin-bottom: -35px;
+//    z-index: 10;
+//    position: relative;
+}
+section#block-il-bootstrap-rssfeedandtwittericons .rss-link:before:hover {
+    color: $darkgray;
+}
+section#block-rssfeedandtwittericons a {
+    color: #fff;
+    font-size: 1px;
+}
+
+#block-rssfeedandtwittericons a:after {
+    font-family: FontAwesome;
+    color: $medgray;
+    font-size: 20px;
+}
+
+#block-rssfeedandtwittericons a.rss-link:after {
+    content: "\f09e";
+}
+
+#block-rssfeedandtwittericons a.twitter-link:after {
+    content: "\f099";
+}
+// page formatting
+.path-product-releases {
+	h4, h5 {     // they want the titles and release number and release date to all be really big on this page
+		font-size: 28px;
+        font-family: brandon-bold;
+        color: $gray;
+		margin: 0px;
+        text-align: left;
+	}
+
+	.views-field.views-field-title {
+//		border-bottom: 1px solid $medgray;
+        line-height: 1.3em;
+		padding: 0px;
+        a {
+            font-family: brandon-bold;
+        }
+	}
+    .views-field.views-field-field-version {
+        float: right;
+        padding-left: 20px;
+		margin-top: -30px;
+        a {
+            font-family: brandon-bold;
+        }
+    }
+	.views-field.views-field-field-release-date {
+//		margin-top: -13px;
+		color: $medgray;
+        margin-bottom: 30px; // was 16px
+//        margin-top: -8px;
+	}
+	.views-field.views-field-body {
+        h4.field-content {
+            font-family: brandon-regular;
+            padding-bottom: 30px;
+            line-height: 1.3em;
+        }
+	}
+	.views-field.views-field-view-node {
+		font-size: 20px;
+
+        color: $gray;
+        .field-content a {
+            @include display-flex();
+            font-family: brandon-bold;
+        }
+        .field-content a:after {
+            @include gray-continued();
+            height: 12px;
+            margin: 6px;
+        }
+        .field-content a:hover:after {
+            background: $darkgray;            
+        }
+	}
+}
+// browser adjustments
+.mac.safari.path-product-releases, .mac.chrome.path-product-releases {
+     .views-field.views-field-view-node .field-content a:after {
+        @include continued-icon-safari();
+         margin-top: 9px; // slight adjustment of the whole ... down
+         margin-top: 9px; // slight adjustment of the whole ... down
+    }
+}
+
+.releases-row.views-row {
+    padding: 10px 0px;
+//    border-bottom: 1px solid $lightgray;
+    // changed from 10 to 40 for 60px space instead of 30px
+    margin-bottom: 40px;   // with 10px padding top and bottom this & 16 px margin below paragraph = 
+    //40px as requested
+	a {
+		color: $gray;
+	}
+	a:hover {
+		color: $darkgray;
+	}
+	
+}
+	
+
+/* -------- individual Release Page -------- */
+.node--type-releases {
+	section#block-views-block-release-header-block-1 {
+		@include gray-bg-section();
+	}
+
+	.views-field-title .views-label,
+	.views-field-field-version .views-label,
+	.views-field-field-release-date .views-label {
+		@include gray-section-labels();
+		
+	}
+	.views-field-field-version .field-content,
+	.views-field-field-release-date .field-content  {
+		display: inline;
+		/* padding-left: 10px; */
+		color: $darkgray;
+		font-size: 22px;
+	}
+	
+	.field-name-field-tags {
+		color: #6e6e6e;
+		.field-label {
+			font-weight: normal;
+		}
+		
+	}
+	
+}
+
+
+   
+/* -- General content / fields -- */
+
+// tags display:
+.field-wrapper.field.field-node--field-tags {
+	.field-label {
+		font-weight: bold;
+		display: inline;
+		float: left;
+		margin-right: 10px;
+	}
+	.field-label:after {
+		content: ":";
+	}
+	.field-items {
+		@include display-flex();
+		flex-wrap: wrap;
+		.field-item {
+			margin-right: 6px;
+		}
+	}
+}
+
+/* --------------- General all Pages styling --------------- */
+
+
+
+/* --- color coding h2's etc for products ---- */
+.section-imagine-language-literacy,
+.product--imagine-language-and-literacy { 
+    h1, h2, h3, h5, .grid-header, .anchor-button, .anchor-button a {
+        color: $blue;
+    }
+  .anchor-button, .anchor-button a {
+    background: $lightblue;
+  }
+}
+.section-imagine-espanol,
+.product--imagine-español {
+    h1, h2, h3, h5, .grid-header, .anchor-button, .anchor-button a {
+        color: $green;
+    }
+  .anchor-button, .anchor-button a {
+    background: $lightgreen;
+  }
+}
+.section-imagine-math,
+.product--imagine-math {
+    h1, h2, h3, h5, .grid-header, .anchor-button, .anchor-button a  {
+        color: $orange;
+    }
+  .anchor-button, .anchor-button a {
+    background: $lightorange;
+  }
+}
+.section-imagine-math-facts,
+.product--imagine-math-facts {
+    h1, h2, h3, h5, .grid-header, .anchor-button, .anchor-button a  {
+        color: $red;
+    }
+  .anchor-button, .anchor-button a {
+    background: $lightred;
+  }
+}
+/* set this if you add another product
+.product--product-name-from-body-tag h2 {
+    color: $blue;
+}
+/*
+/* ----------- product pages & sections ------------ */
+
+/*-- product header ---*/
+@mixin product-header-name() {
+	font-size: 16px;
+    font-family: brandon-medium;
+    margin-bottom: 5px;
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    text-align: center;
+  }
+}
+section.block-views-blockproduct-header-block-1 {
+    .field-content {
+        @include display-flex();
+        justify-content: center;
+        @include product-header-name();
+//        margin: 10px 0px 20px;
+//        background: $lightgray;
+        padding: 10px 10px 0px;
+        color: $blue;
+    }
+}
+
+// for non-content pages, but views:
+.product-name, p.product-name {
+    @include product-header-name();
+    text-align: center;
+    
+}
+ // color coding is added on these with the color classes
+
+
+/* --- page title --- */
+
+.block-il-support-page-title h1 {
+    font-weight: 500;
+    color: $medgray;
+}
+
+/* ------ product menu navigation ------ */
+/* sidebar menu */
+
+// Freezing left sidebar and having it scroll?
+.region-sidebar-first {
+
+@media screen and (min-width: 768px) {
+  // these lines make it so that the sidebar goes off under the logo instead of a sharp visible top edge
+  padding-top: 62px; // 40px + 22px adjustment up
+  margin-top: -22px;
+
+    position: fixed;
+    width: 162px; // tablet version
+    padding-left: 20px;
+    overflow-y: auto;
+    height: calc(100vh - 100px);
+    //padding-right: 10px; // needs to be 15 bc 5px to the right + 15=20 padding
+    //padding: 40px 15px 30px 20px;
+
+  }
+  // for some reason % widths mess up the scrollbar and stuff so i'm setting a few widths at breakpoints:
+  @media screen and (min-width: 830px) and (max-width: 880px) {
+    width: 179px;
+  }
+  @media screen and (min-width: 880px) and (max-width: 920px) {
+    width: 190px;
+  }
+  @media screen and (min-width: 920px) and (max-width: 960px) {
+    width: 198px;
+  }
+  @media screen and (min-width: 960px) and (max-width: 1023px) {
+    width: 214px;
+  }
+
+  // just tablet portrait
+  @media screen and (min-width: 768px) and (max-width: 1023px) {
+    //padding-top: 40px;
+    padding-left: 0px;
+    padding-right: 15px;
+  }
+  @media screen and (min-width: 1024px) {
+    //width: 226px; // landscape tablet, different from desktop
+    //width: 21.5%; // landscape tablet, different from desktop
+    width: 216px; // landscape tablet, different from desktop
+    padding-right: 20px;
+    padding-left: 0px;
+    padding-top: 32px;
+  }
+  @media screen and (min-width: 1100px) and (max-width: 1199px) {
+    width: 240px;
+  }
+  @media screen and (min-width: 1200px) {
+    width: 260px;  // was 265px but we added scrollbar and it needs to not go all the way to the edge, but leave 12px to the right of it
+    padding-right: 20px;
+
+  }
+}
+
+
+.region-sidebar-first .nav li {
+    
+}
+
+@mixin toMedium() {
+  color: $darkgray;
+  font-family: brandon-medium;
+}
+@mixin toBold() {
+  color: $darkgray;
+  font-family: brandon-bold;
+}
+
+// general menu styling
+.region-sidebar-first nav {
+    margin-top: -10px;
+    @media screen and (max-width: 1023px) {
+        margin-top: 0px;
+    }
+	ul {
+		margin-left: 0px;
+	}
+    ul.level-1 > li {
+
+    }
+    a {
+        color: $gray;
+        font-family: brandon-regular;
+    }
+    a:focus {
+        background-color: none;
+    }
+    a.current-page, a.is-active,
+    a:hover, a:active {
+      @include toMedium();
+      @media screen and (max-width: 767px) {
+        @include toBold();
+      }
+    }
+    ul.level-2 {
+        margin-left: -25px; // move it back to line up with logo
+    }
+    //1st level sections
+	& > ul > li > span.top-level {
+		@include display-flex();
+		justify-content: center;
+		padding-bottom: 10px;
+		padding-top: 10px;
+		font-size: 14px;
+		color: $gray;
+        text-align: center;
+        @media screen and (min-width: 768px) and (max-width: 1023px){
+            font-size: 12px;
+        }
+        @media screen and (max-width: 767px) {
+          font-size: 18px;
+          /* text-align: left; */
+          justify-content: space-between;
+          width: 100%;
+          flex: 1;
+          padding: 0 0 6px;
+          &.expanded {
+            padding: 0 0 18px;
+            @include toMedium();
+          }
+        }
+	}
+    ul.level-1, ul.level-3 {
+        padding-left: 0px;
+    }
+
+//    & > ul > li > a {
+//        font-family: brandon-regular;
+//    }
+	ul > li > ul:first-of-type > li > span {
+		padding-top: 0px;
+	}
+
+
+    // 2nd level content, like Organization
+	ul.level-2 > li > a {
+		display: block;
+		padding-bottom: 5px;
+		font-size: 20px;
+		color: $gray;
+        font-family: brandon-medium;
+        @media screen and (min-width: 768px) and (max-width: 1023px){
+            font-size: 16px;
+        }
+      @media screen and (max-width: 767px) {
+          font-size: 18px;
+      }
+      &.children-active,
+      &.is-active {
+        @include toBold(); // covers 2nd level on active pages
+      }
+	}
+    ul.level-2 > li.expanded > a {
+      @media screen and (max-width: 767px) {
+        @include toBold();
+      }
+    }
+    @mixin collapsedClosedIcon() {
+      font-family: imagineicons;
+      content: "\e015";
+      float: right;
+      font-size: 18px;
+      //margin-right: 14px;
+    }
+    @mixin collapsedOpenIcon() {
+      content: "\e016"; // close icon? -
+    }
+    @mixin sideMenuLinksSpacing() {
+      line-height: 19px; // so 2-line links don't have over padding between, but have spacing after
+      padding-bottom: 10px;
+    }
+    ul.level-2 > li.expanded > a {
+      //@include toBold();
+    }
+    ul.level-2 > li.expanded > a:after {
+    @include collapsedClosedIcon();
+
+    }
+    ul.level-2 > li.expanded.active > a:after {
+      @include collapsedOpenIcon();
+
+    }
+    
+    ul.level-2 > li > a.current-page:after,
+    ul.level-2 > li > a:hover:after {
+        color: $darkgray;
+    }
+    ul.level-2 > li > a.current-page,
+    ul.level-2 > li > a:hover {
+//        color: $darkgray;  // covered above in general
+      @include toBold();
+    }
+
+	// spacing at end of a section of 3rd level links
+	& > ul > li > ul > li > ul:not(.section-active) {
+//		padding-bottom: 25px;
+		display: none;
+	}
+	// if on a 3rd level page, style it's parent 2nd level link:
+	a.children-active {
+      @include toBold();
+	}
+	
+	// general styling for 3rd level links
+	ul.level-3 {
+		padding-bottom: 12px;
+        display: none;
+        @media screen and (min-width: 768px) and (max-width: 1023px){
+            font-size: 14px;
+        }
+        @media screen and (max-width: 767px) {
+          font-size: 16px;
+          font-family: brandon-regular;
+        }
+        & > li {
+          @include sideMenuLinksSpacing();
+        }
+		a {
+            font-size: 16px;
+//			color: $darkgray;
+		}
+	}
+    ul.level-2 > li.expanded.active ul.level-3,
+    ul.level-3.section-active {
+        display: block;
+    }
+    
+    ul.level-4 > li {
+      @include sideMenuLinksSpacing();
+      & > a {
+        font-size: 16px;
+      }
+
+    }
+    @media screen and (max-width: 1023px){
+        ul.level-4 {
+            padding-left: 20px; // is normally 30px
+        }
+    }
+	li {
+		list-style-type: none;
+        width: 100%;
+//		padding-bottom: 2px; // to make it have the spacing brette has pictured
+	}
+	
+	li a {
+//		color: $medgray;
+	}
+  // katria here here aug 31 sept 3
+  //  ---- Mobile sidebar collapsed sections at top of page: ----
+  @media screen and (max-width: 767px) {
+    & > ul > li > span.top-level + .level-2 {
+      display: none;
+    }
+    & > ul > li > span.top-level {
+
+    }
+    & > ul > li > span.top-level:after {
+      //content: "+";
+      // main sections here
+      @include collapsedClosedIcon();
+
+    }
+    & > ul > li > span.top-level.expanded + .level-2 {
+      display: block;
+    }
+    & > ul > li > span.top-level.expanded:after {
+      @include collapsedOpenIcon();
+
+    }
+    // font size & spacing changes:
+    
+    // then undo the other collapsed sections?
+    // styling
+  }
+
+
+} 
+
+/* ---- color coding for products pages ----*/
+
+.section-imagine-language-literacy {
+//.product--imagine-language--literacy {
+    .region-sidebar-first nav li span, // the sections, not the links
+//    #content-top nav li a,
+//    #main-content-region nav li a,
+    section.block-views-blockproduct-header-block-1 .field-content {
+        color: $blue;
+    }
+}
+.region-sidebar-first nav#block-imaginelearning li a {
+//	color: $blue;
+}
+.section-imagine-espanol {
+    .region-sidebar-first nav li span, // the sections, not the links
+//    #content-top nav li a,
+//    #main-content-region nav li a,
+    section.block-views-blockproduct-header-block-1 .field-content {
+        color: $green;
+    }
+}
+.region-sidebar-first nav#block-imaginelearningespanol li a {
+//	color: $green;
+}
+.section-imagine-math {
+    .region-sidebar-first nav li span, // the sections, not the links
+//    #content-top nav li a,
+//    #main-content-region nav li a,
+    section.block-views-blockproduct-header-block-1 .field-content {
+        color: $orange;
+    }
+}
+.region-sidebar-first nav#block-imaginelearningmath li a {
+//	color: $orange;
+}
+.section-imagine-math-facts {
+    .region-sidebar-first nav li span, // the sections, not the links
+//    #content-top nav li a,
+//    #main-content-region nav li a,
+    section.block-views-blockproduct-header-block-1 .field-content {
+        color: $red;
+    }
+}
+.region-sidebar-first nav#block-imaginelearningmathfacts li a {
+//	color: $red;
+}
+
+/* -- Landing Pages -- */
+
+
+/* -- Support  Pages -- */
+
+
+
+/* -------- System Requirement pages ----- */
+
+// tiles for system requirements and possibly others
+
+.tile-container {
+//    @include display-flex();
+//    justify-content: flex-start;
+//    flex-wrap: wrap;
+}
+.requirement-tile {
+    width: 100%;
+	@include display-flex();
+//    border: 2px solid #e5e5e5;
+
+    padding: 15px 20px 15px 20px;
+    min-height: 150px;
+//    @include inner-box-shadow-gray();
+//    @include rounded-corners();
+	@include gray-bg-section();
+    border-radius: 5px;
+	
+    li {
+        padding-bottom: 5px;
+    }
+}
+.tile-title {
+    color: $blue;
+    font-size: 18px;
+	width: 30%;
+    margin-right: 20px;
+}
+.section-imagine-language-literacy {
+	.tile-title {
+		color: $blue;
+	}
+}
+.section-imagine-espanol {
+	.tile-title {
+		color: $green;
+	}
+}
+.section-imagine-math {
+	.tile-title {
+		color: $orange;
+	}
+}
+.section-imagine-math-facts {
+	.tile-title {
+		color: $red;
+	}
+}
+
+// system requirements specifically
+.system-requirements-view {
+    
+    h3 {
+        font-size: 1.375rem;
+        width: 100%;
+		text-align: center;
+//        border-bottom: 2px solid $blue;
+        margin: 15px 0px;
+        font-size: 30px;
+    }
+    // filters:
+    
+    .views-exposed-form > .form-checkboxes > .form-checkboxes > ul {
+        @include display-flex();
+    }
+    // hide top level browser, device, etc
+     .views-exposed-form > .form-checkboxes > .form-checkboxes > ul > li > div > label {
+//        display: none;
+        padding-left: 0px;
+        margin-left: 19px;
+    }
+    .fieldset-legend.disabled {
+      color: $medgray;
+    }
+    label.disabled {
+      color: $medgray;
+      padding-top: 5.5px;
+      &:before {
+        top: 4px;
+      }
+
+    }
+
+     .views-exposed-form > .form-checkboxes > .form-checkboxes > ul > li > div > label:before,
+     .views-exposed-form > .form-checkboxes > .form-checkboxes > ul > li > div > label:after {
+        display: none!important;  
+        color: #fff!important;
+    }
+    
+    // checkbox adjustments
+    .js-form-type-checkbox label:before {
+        left: -26px;
+    }
+    .js-form-type-checkbox label:after {
+        left: -25px;
+    }
+    .view-filters.form-group {
+        margin-bottom: 60px;
+        margin-left: 15px;
+      //@media screen and (max-width: 767px) {
+      //  margin-left: 7px;
+      //}
+    }
+    // original styling
+    form.views-exposed-form {
+        @include display-flex();
+        legend {
+//            font-weight: bold;
+            font-size: 18px;
+            border-bottom: none;
+            margin-bottom: 8px;
+            margin-left: -6px;
+        }
+
+      @media screen and (min-width: 768px) and (max-width: 1022px) {
+        fieldset#edit-field-browser-target-id--wrapper,
+        fieldset#edit-field-device-target-id--wrapper {
+          margin-top: 15px;
+        }
+
+      }
+      // slight button adjustment by widths until button fits
+      @media screen and (min-width: 1043px) and (max-width: 1202px) {
+        div#edit-actions {
+          width: 100%;
+        }
+
+      }
+      @media screen and (min-width: 808px) and (max-width: 966px) {
+        div#edit-actions {
+          width: 100%;
+        }
+
+      }
+      @media screen and (max-width: 767px) {
+
+        .form-item {
+          margin: -5px 0px 0px;
+        }
+        fieldset.form-item {
+          margin-bottom: 15px;
+        }
+        button.form-submit {
+           margin-left: auto;
+            margin-right: auto;
+        }
+
+
+      }
+        .form-item { // form item applies to fieldgroup and inner form item checkboxes
+            margin-right: 20px;
+			width: 156px;
+
+            label {
+                font-size: 16px;
+            }
+        }
+      // overriding platform/app form-item
+        [data-drupal-selector=edit-field-app-target-id] {  // the normal id changes after one views filter
+          width: 304px;
+          .form-item {
+            width: 304px;
+          }
+        }
+        button {
+//            margin-top: 24px;
+            margin-right: 0px;
+            display: block;
+            @include small-button();
+            width: 119px;
+            @media screen and (max-width: 768px) {
+                margin-top: 20px;
+            }
+        }
+//        button:hover {
+//            @include small-button-hover(); // badly overrides color coding
+//        }
+    }
+    .views-field.views-field-body {
+        width: 70%;
+    }
+    ol,ul {
+        padding-left: 1em;
+    }
+    // mobile & tablet adjustmemts
+    @media screen and (max-width: 767px) {
+        .view-filters.form-group {
+          margin-left: 7px;
+          margin-bottom: 20px;
+        }
+        fieldset#edit-field-browser-target-id--wrapper:nth-of-type(3) {
+            //margin-top: 20px;
+            margin-left: auto;
+            margin-right: auto;
+        }    
+        
+        
+        
+    }
+    
+}
+.section-imagine-language-literacy {
+	a {
+		color: $blue;
+	}
+	a:hover {
+		// need to do slightly darker blue?
+	}
+	.system-requirements-view {
+        .views-exposed-form > .form-checkboxes > .form-checkboxes > ul > li > div > label,
+		form.views-exposed-form legend {
+			color: $blue;	
+		}
+		h3 {
+			color: $blue;
+//			border-bottom: 2px solid $blue;
+			text-align: center;
+		}
+		.js-form-type-checkbox label:after {
+			color: $blue;
+		}
+        button.form-submit {
+            @include blue-line-button();
+        }
+        button.form-submit:hover {
+            @include blue-line-button-hover();
+        }
+	}
+}
+.section-imagine-espanol {
+	a {
+		color: $green;
+	}
+	a:hover {
+		// need to do slightly darker green?
+	}
+	.system-requirements-view {
+        .views-exposed-form > .form-checkboxes > .form-checkboxes > ul > li > div > label,
+		form.views-exposed-form legend {
+			color: $green;	
+		}
+		h3 {
+			color: $green;
+//			border-bottom: 2px solid $green;
+			text-align: center;
+		}
+		.js-form-type-checkbox label:after {
+			color: $green;
+		}
+        button.form-submit {
+            @include green-line-button();
+        }
+        button.form-submit:hover {
+            @include green-line-button-hover();
+        }
+	}
+}
+.section-imagine-math {
+	a {
+		color: $orange;
+	}
+	a:hover {
+		// need to do slightly darker orange?
+	}
+	.system-requirements-view {
+        .views-exposed-form > .form-checkboxes > .form-checkboxes > ul > li > div > label,
+		form.views-exposed-form legend {
+			color: $orange;	
+		}
+		h3 {
+			color: $orange;
+//			border-bottom: 2px solid $orange;
+			text-align: center;
+	
+		}
+		.js-form-type-checkbox label:after {
+			color: $orange;
+		}
+        button.form-submit {
+            @include orange-line-button();
+        }
+        button.form-submit:hover {
+            @include orange-line-button-hover();
+        }
+	}
+}
+.section-imagine-math-facts {
+	a {
+		color: $red;
+	}
+	a:hover {
+		// need to do slightly darker red?
+	}
+	.system-requirements-view {
+        .views-exposed-form > .form-checkboxes > .form-checkboxes > ul > li > div > label,
+		form.views-exposed-form legend {
+			color: $red;	
+		}
+		h3 {
+			color: $red;
+//			border-bottom: 2px solid $red;
+			text-align: center;
+		}
+		.js-form-type-checkbox label:after {
+			color: $red;
+		}
+        button.form-submit {
+            @include red-line-button();
+        }
+        button.form-submit:hover {
+            @include red-line-button-hover();
+        }
+	}
+}
+
+/* -------- Known Issues Pages ------- */
+.known-issues-page {
+    // search bar
+    .views-exposed-form {
+        @include display-flex();
+        justify-content: space-between;
+        .form--inline.form-inline.clearfix {
+            width: 100%;
+        }
+    }
+    button#edit-submit-known-issues {
+        margin: 0px 0px 0px 15px;
+        padding: 6px 40px;
+    }
+    .form-item-issue-body-value,
+    .form-item-search-issues {
+        width: 83%;
+    }
+    [type='text'] {
+        @include text-input();
+        width: 100%;
+    }
+    .form-item-search-issues input::-webkit-input-placeholder,
+    .form-item-search-issues input:-moz-placeholder,
+    .form-item-search-issues input::-moz-placeholder,
+    .form-item-search-issues input:-ms-input-placeholder {
+        position: relative;
+        left: -38%;
+    }
+    #edit-actions {
+        width: 16%;
+    }
+    #edit-actions input {
+        @include small-button();
+        background: #fff;
+        width: 100%;
+    }
+	#edit-actions input:hover {
+        @include small-button-hover();
+	}
+	.views-row {
+//		@include gray-bg-section();
+		
+	}
+	.views-field {
+		@include display-flex();
+        a {
+            font-family: brandon-regular;
+            font-size: 20px;
+        }
+        a:hover {
+            font-family: brandon-medium;
+        }
+	}
+
+	.views-field-body {
+		font-size: 18px;
+	}
+	.views-field.views-field-body {
+		padding-top: 10px;
+	}
+    & .view-content > h2 {
+        font-weight: 500;
+        padding: 30px 0px 0px;
+        text-align: center;
+    }
+    .views-row + h2 {
+        color: $gray;
+    }
+}
+
+
+// some color coding - most color coding is with classes in views
+.section-imagine-language-literacy .known-issues-page > h3:first-of-type {
+	color: $blue;
+}
+.section-imagine-espanol .known-issues-page > h3:first-of-type {
+	color: $green;
+}
+.section-imagine-math .known-issues-page > h3:first-of-type {
+	color: $orange;
+}
+.section-imagine-math-facts .known-issues-page > h3:first-of-type {
+	color: $red;
+}
+.gray-section-labels {
+	@include gray-section-labels();
+	width: 200px;
+}
+// h3 above a link
+.field-content.continued-icon {
+    width: 100%;
+    margin: 7px 0px;
+}
+
+.blue.continued-icon .Active a:after {
+	@include blue-continued();
+}
+.green.continued-icon .Active a:after {
+	@include green-continued();
+}
+.red.continued-icon .Active a:after {
+	@include red-continued();
+}
+.orange.continued-icon .Active a:after {
+	@include orange-continued();
+}
+
+.continued-icon .Resolved a {
+    color: $gray;
+}
+.continued-icon .Resolved a:hover {
+    color: $darkgray;
+}
+.continued-icon .Resolved a:after {
+    @include gray-continued();
+}
+// for resolved ones always be gray:
+
+// browser issues
+.mac.safari {
+    .blue.continued-icon .Active a:after,    
+    .green.continued-icon .Active a:after , 
+    .red.continued-icon .Active a:after ,  
+    .orange.continued-icon .Active a:after,
+    .continued-icon .Resolved a ,  
+    .continued-icon .Resolved a:hover ,   
+    .continued-icon .Resolved a:after {
+        @include continued-icon-safari();
+    }
+}
+
+/* ------ Download Pages --------- */
+
+.downloads-container {
+    @include display-flex();
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    align-content: center;
+    padding: 15px 0px;
+}
+.download-section {
+    width: 27%;
+    @include display-flex();
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+//    padding: 20px 0px;
+    margin: 30px 0px;
+    @media screen and (min-width: 900px) and (max-width: 1050px) {
+        width: 33%;
+    }
+    @media screen and (max-width: 900px) {
+        width: 50%;
+    }
+    .grayscale-image {
+        display: none;
+    }
+    img {
+       @media screen and (max-width: 500px) {
+            width: 130px;
+        } 
+    }
+    .section-name {
+        color: $gray;
+        padding-top: 30px;
+    }
+}
+
+
+.download-section:hover {
+    .section-name {
+        font-weight: 600;
+    }
+    .colored-image {
+        display: none;    
+    }
+    .grayscale-image {
+        display: block;
+    }
+}
+a.download-section:active {
+    .grayscale-image {
+        display: block;
+    }
+    .colored-image {
+        display: none;
+    }
+}
+
+
+
+  
+/* --------------- other pages -------- */
+
+
+/* ----- Contact Us page ---- */
+.contact-email, .contact-phone, .contact-chat {
+	color: $gray;
+	font-size: 22px;
+	font-weight: 500;
+	a {
+		color: $gray;
+	}
+	a:hover {
+		color: $darkgray;
+	}
+}
+.contact-email:before {
+	// content: "/e000";
+	font-family: imagineicons;
+}
+.contact-phone:before {
+	// content: "/e000";
+	font-family: imagineicons;
+}
+.contact-chat:before {
+	// content: "/e000";
+	font-family: imagineicons;
+}
+
+/* --- Website Feedback -- */
+.contact-form {
+	#edit-submit, #edit-preview {
+		@include small-button();
+		display: inline;
+    	padding: 14px 24px;
+		background: #fff;
+	}
+	#edit-submit:hover, #edit-preview:hover {
+		@include small-button-hover();
+	}
+	
+}
+
+
+/* -------- editing content ----------- */
+
+.view-releases-to-select .views-row {
+    @include display-flex();
+	.views-field-entity-browser-select {
+		padding-right: 7px;
+		margin-top: -8px;
+	}
+	.views-field-title {
+		padding-right: 7px;
+	}
+    
+	
+}
+
+
+
+/* ----  overriding foundation classes  ---- */
+
+.region-highlighted.panel.callout {
+    border: none;
+}
+
+
+/* --------------- Rostering Webform Pages -------------- */
+
+// 4 rostering upload file pages
+.page--node-444,
+.page--node-445,
+.page--node-446,
+.page--node-447,
+.url-rostering {
+  //h1, h2, h3 {
+  //  //color: $blue;
+  //}
+  // make h1 for page like h2
+  h1.js-quickedit-page-title.page-header {
+    font-size: 28px;
+  }
+}
+
+.page--node-444 #block-webform form,
+.page--node-445 #block-webform form,
+.page--node-446 #block-webform form,
+.page--node-447 #block-webform form,
+form#webform-submission-rostering-form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .form-control {
+    height: 44px;
+  }
+  .form-item-name, .form-item-email, .form-item-district {
+    width: 32%;
+    @media screen and (max-width: 1024px) {
+      width: 30%;
+    }
+    @media screen and (max-width: 768px) {
+      //width: 30%;
+    }
+  }
+
+  .form-item-school-name, .form-item-site-code {
+    width: 49%;
+    @media screen and (max-width: 1024px) {
+      width: 47%;
+    }
+    @media screen and (max-width: 768px) {
+      //width: 47%;
+    }
+  }
+
+  div#edit-site-code_counter {
+    font-size: 14px;
+    padding-top: 4px;
+  }
+
+  .description {
+    font-size: 16px;
+    padding-top: 6px;
+  }
+
+
+  // upload field
+
+  .form-managed-file{
+    width: 100%;
+  }
+    .form-group {
+
+    input.form-file {
+      border: none;
+      box-shadow: none;
+      padding-left: 0px;
+    }
+  }
+
+
+  //check mark
+  .js-form-type-checkbox label:before {
+    top: 23px;
+  }
+  .js-form-type-checkbox label:after {
+    top: 20px;
+  }
+
+  // delete an uploaded item
+  button.btn-danger, button.btn-danger:hover {
+    padding: 6px 25px;
+  }
+  button.btn-danger:hover {
+    @include small-button-hover();
+  }
+
+  button.btn-danger {
+    .btn.icon-before .glyphicon { // delete trash icon
+      margin-right: 4px;
+      top: 0px;
+    }
+  }
+
+  // submit
+
+  button#edit-submit {
+    width: 120px;
+  }
+  button#edit-submit:hover {
+    @include small-button-hover();
+  }
+
+}
+
+// color coding
+
+.file > span {
+  color: $blue;
+  .glyphicon-file:before {
+    color: $blue;
+    position: relative;
+    top: 3px;
+
+  }
+}
+// imagine lang
+.page--node-444 #block-webform form{
+  .file > span {
+    color: $blue;
+    .glyphicon-file:before {
+      color: $blue;
+      position: relative;
+      top: 3px;
+
+    }
+  }
+}
+// espanol
+.page--node-445 #block-webform form {
+  .file > span {
+    color: $green;
+    .glyphicon-file:before {
+      color: $green;
+    }
+  }
+}
+// imagine math
+.page--node-446 #block-webform form {
+  .file > span {
+    color: $orange;
+    .glyphicon-file:before {
+      color: $orange;
+    }
+  }
+}
+// math facts
+.page--node-447 #block-webform form {
+  .file > span {
+    color: $red;
+    .glyphicon-file:before {
+      color: $red;
+    }
+  }
+}
+
+
+
+.test {
+  color: pink;
+}
